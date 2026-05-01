@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apuntes Derecho Sindical — Negociación Colectiva y Huelga</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208;
+    --paper: #faf7f0;
+    --cream: #f2ede0;
+    --accent: #8b1a1a;
+    --accent2: #1a4a8b;
+    --accent3: #1a6b3c;
+    --accent4: #7a4a00;
+    --gold: #c8922a;
+    --light-red: #fdf0f0;
+    --light-blue: #f0f5fd;
+    --light-green: #f0fdf5;
+    --light-gold: #fdf9f0;
+    --border: #d4c9a8;
+    --shadow: rgba(26,18,8,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: var(--ink);
+    color: var(--paper);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(200,146,42,0.04) 40px,
+      rgba(200,146,42,0.04) 41px
+    );
+  }
+  .cover-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 0.4rem 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .cover h1 span {
+    color: var(--gold);
+    display: block;
+  }
+  .cover .subtitle {
+    font-size: 1.1rem;
+    color: rgba(250,247,240,0.65);
+    margin-bottom: 3rem;
+    font-style: italic;
+    font-weight: 300;
+  }
+  .cover-toc {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+    max-width: 800px;
+    width: 100%;
+    margin-top: 2rem;
+    text-align: left;
+  }
+  .cover-toc-item {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: rgba(250,247,240,0.5);
+    padding: 0.3rem 0;
+    border-top: 1px solid rgba(200,146,42,0.2);
+  }
+  .cover-toc-item strong { color: var(--gold); }
+
+  /* ── LAYOUT ── */
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem 6rem;
+  }
+
+  /* ── TEMA HEADER ── */
+  .tema {
+    margin-top: 5rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 3px solid var(--ink);
+  }
+  .tema-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .tema h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+  .tema .tema-subtitle {
+    font-style: italic;
+    color: rgba(26,18,8,0.55);
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+  }
+
+  /* ── HEADINGS ── */
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1.5px solid var(--border);
+  }
+  h4 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent2);
+    margin: 2rem 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.95rem;
+  }
+  h5 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  p { margin-bottom: 1rem; }
+
+  /* ── CALLOUT BOXES ── */
+  .box {
+    margin: 1.8rem 0;
+    padding: 1.2rem 1.5rem 1.2rem 1.8rem;
+    border-radius: 2px;
+    position: relative;
+    page-break-inside: avoid;
+  }
+  .box::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    border-radius: 2px 0 0 2px;
+  }
+  .box-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .box-title::before {
+    content: attr(data-icon);
+    font-size: 1rem;
+    font-family: sans-serif;
+  }
+
+  /* Recuerda */
+  .box-recuerda { background: var(--light-blue); border-left: 4px solid var(--accent2); }
+  .box-recuerda::before { background: var(--accent2); }
+  .box-recuerda .box-title { color: var(--accent2); }
+
+  /* Importante */
+  .box-importante { background: var(--light-red); border-left: 4px solid var(--accent); }
+  .box-importante::before { background: var(--accent); }
+  .box-importante .box-title { color: var(--accent); }
+
+  /* Examen */
+  .box-examen { background: #fff8e6; border-left: 4px solid var(--gold); }
+  .box-examen::before { background: var(--gold); }
+  .box-examen .box-title { color: var(--accent4); }
+
+  /* Definición */
+  .box-def { background: var(--light-green); border-left: 4px solid var(--accent3); }
+  .box-def::before { background: var(--accent3); }
+  .box-def .box-title { color: var(--accent3); }
+
+  /* Clase */
+  .box-clase { background: #f7f0fd; border-left: 4px solid #6b3a8b; }
+  .box-clase::before { background: #6b3a8b; }
+  .box-clase .box-title { color: #6b3a8b; }
+
+  /* Ejemplo */
+  .box-ejemplo { background: var(--cream); border-left: 4px solid var(--ink); }
+  .box-ejemplo::before { background: var(--ink); }
+  .box-ejemplo .box-title { color: var(--ink); }
+
+  /* Atención */
+  .box-atencion { background: #fff3e0; border-left: 4px solid #e65100; }
+  .box-atencion::before { background: #e65100; }
+  .box-atencion .box-title { color: #e65100; }
+
+  /* Jurisprudencia */
+  .box-juris { background: #f0f0f7; border-left: 4px solid #4a4a8b; }
+  .box-juris::before { background: #4a4a8b; }
+  .box-juris .box-title { color: #4a4a8b; }
+
+  /* ── LISTS ── */
+  ul, ol {
+    margin: 0.75rem 0 1rem 0;
+    padding-left: 1.5rem;
+  }
+  ul li, ol li {
+    margin-bottom: 0.4rem;
+    line-height: 1.7;
+  }
+  ul { list-style-type: none; }
+  ul li::before {
+    content: '—';
+    color: var(--gold);
+    font-weight: 700;
+    margin-right: 0.5rem;
+    margin-left: -1.5rem;
+  }
+
+  /* ── TABLES ── */
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+  th {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.7rem 1rem;
+    text-align: left;
+    font-weight: 400;
+  }
+  td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: rgba(212,201,168,0.2); }
+  tr:hover td { background: rgba(200,146,42,0.08); }
+
+  /* ── ARTICLE REFERENCE ── */
+  .art {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85em;
+    background: rgba(26,18,8,0.07);
+    padding: 0.1em 0.4em;
+    border-radius: 2px;
+    color: var(--accent2);
+    font-weight: 700;
+  }
+
+  /* ── QUOTE ── */
+  blockquote {
+    border-left: 3px solid var(--gold);
+    margin: 1.5rem 0;
+    padding: 0.8rem 1.5rem;
+    background: var(--cream);
+    font-style: italic;
+    color: rgba(26,18,8,0.8);
+  }
+  blockquote cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-style: normal;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3rem 0;
+  }
+
+  /* ── FOOTNOTE STYLE TEXT ── */
+  .nota {
+    font-size: 0.85rem;
+    color: rgba(26,18,8,0.6);
+    font-style: italic;
+  }
+
+  /* ── TWO-COLUMN COMPARISON ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+  .col-card {
+    border: 1px solid var(--border);
+    padding: 1.2rem;
+    background: var(--cream);
+  }
+  .col-card-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  /* ── STEP/PHASES ── */
+  .steps {
+    counter-reset: step;
+    margin: 1.5rem 0;
+  }
+  .step {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    background: var(--ink);
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .step-content { flex: 1; }
+
+  /* ── PRINT / PAGE BREAKS ── */
+  @media print {
+    .cover { min-height: auto; padding: 3rem; page-break-after: always; }
+    .tema { page-break-before: always; }
+  }
+
+  /* ── TOP NAV ── */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.6rem 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    z-index: 100;
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .sticky-nav a {
+    color: rgba(250,247,240,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .sticky-nav a:hover { color: var(--gold); }
+
+  .tag-ilegal {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    padding: 0.1em 0.5em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    vertical-align: middle;
+    margin-left: 0.3em;
+  }
+  .tag-licita {
+    display: inline-block;
+    background: var(--accent3);
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    padding: 0.1em 0.5em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    vertical-align: middle;
+    margin-left: 0.3em;
+  }
+
+  /* ── SCHEMA VISUAL ── */
+  .schema {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    line-height: 2;
+  }
+  .schema-arrow {
+    color: var(--gold);
+    font-size: 1.2em;
+  }
+
+  strong { font-weight: 600; color: var(--ink); }
+  em { font-style: italic; }
+
+  .indent { margin-left: 1.5rem; }
+
+  sup { font-size: 0.7em; vertical-align: super; }
+
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     PORTADA
+══════════════════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-badge">Derecho Sindical · Apuntes Universitarios</div>
+  <h1>
+    Negociación Colectiva<br>
+    <span>y Derecho de Huelga</span>
+  </h1>
+  <p class="subtitle">Temario completo · Convenios colectivos, conflictos laborales y derecho de huelga</p>
+  <div class="cover-toc">
+    <div class="cover-toc-item"><strong>T.1</strong> Caracterización general</div>
+    <div class="cover-toc-item"><strong>T.2</strong> Procedimiento negociador</div>
+    <div class="cover-toc-item"><strong>T.3</strong> Contenido de los convenios</div>
+    <div class="cover-toc-item"><strong>T.4/6</strong> Control judicial</div>
+    <div class="cover-toc-item"><strong>T.7</strong> Otros instrumentos</div>
+    <div class="cover-toc-item"><strong>T.8</strong> Conflictos laborales</div>
+    <div class="cover-toc-item"><strong>T.9</strong> Acuerdos interprofesionales</div>
+    <div class="cover-toc-item"><strong>T.10</strong> Derecho de huelga I</div>
+    <div class="cover-toc-item"><strong>T.11</strong> Derecho de huelga II</div>
+    <div class="cover-toc-item"><strong>T.12</strong> Cierre patronal</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     NAVEGACIÓN
+══════════════════════════════════════════════════════════ -->
+<nav class="sticky-nav">
+  <a href="#tema1">T.1 Introducción</a>
+  <a href="#tema2">T.2 Procedimiento</a>
+  <a href="#tema3">T.3 Contenido</a>
+  <a href="#tema46">T.4/6 Control</a>
+  <a href="#tema7">T.7 Instrumentos</a>
+  <a href="#tema8">T.8 Conflictos</a>
+  <a href="#tema9">T.9 Acuerdos</a>
+  <a href="#tema10">T.10 Huelga I</a>
+  <a href="#tema11">T.11 Huelga II</a>
+  <a href="#tema12">T.12 Cierre</a>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════
+     CONTENIDO
+══════════════════════════════════════════════════════════ -->
+<div class="content">
+
+
+<!-- ────────────────────────────────────────────────────────
+     TEMA 1
+──────────────────────────────────────────────────────── -->
+<div class="tema" id="tema1">
+  <span class="tema-num">Tema 1</span>
+  <h2>La Negociación Colectiva</h2>
+  <p class="tema-subtitle">Sujetos negociadores y ámbito personal, funcional, territorial y temporal</p>
+</div>
+
+<h3>1.1 ¿Qué es la negociación colectiva?</h3>
+
+<p>La negociación colectiva es un <strong>procedimiento de creación de reglas y toma de decisiones</strong> caracterizado por la intervención directa, conjunta y exclusiva de representantes de trabajadores y empresarios. Su objetivo es la firma de un acuerdo (convenio o acuerdo colectivo), aunque el proceso puede quedar interrumpido o frustrado por desavenencias entre las partes.</p>
+
+<p>Asentada en el <strong>principio de autonomía colectiva</strong>, actúa como fuente de producción de normas y como fuente de regulación, creando una compleja red de acuerdos y convenios colectivos en distintos ámbitos y niveles.</p>
+
+<div class="box box-def">
+  <div class="box-title" data-icon="📖">Definición</div>
+  La negociación colectiva es el mecanismo por el que trabajadores y empresarios, a través de sus representantes, establecen conjuntamente las condiciones de empleo y trabajo que regirán sus relaciones laborales.
+</div>
+
+<h4>Funciones de la Negociación Colectiva</h4>
+
+<ul>
+  <li><strong>Creación de reglas:</strong> Establecimiento de condiciones de empleo y trabajo aplicables a las relaciones laborales.</li>
+  <li><strong>Decisiones empresariales:</strong> Adopción de decisiones sobre la organización del trabajo y gestión de recursos humanos.</li>
+  <li><strong>Canales de relación:</strong> Creación de vías de encuentro entre empresas y trabajadores para facilitar el diálogo.</li>
+  <li><strong>Ordenación de relaciones:</strong> Establecimiento de pautas sobre la propia negociación, aplicación de convenios y prevención de conflictos.</li>
+</ul>
+
+<h4>Mecanismos relacionados</h4>
+<p>Además de la negociación colectiva en sentido estricto, existen otros mecanismos que cumplen funciones similares pero tienen distinta naturaleza:</p>
+<ul>
+  <li><strong>Consulta:</strong> Participación en la toma de decisiones empresariales.</li>
+  <li><strong>Cogestión:</strong> Participación directa en la gestión de la empresa.</li>
+  <li><strong>Concertación y Diálogo Social:</strong> Acuerdos tripartitos entre gobierno, sindicatos y empresarios.</li>
+</ul>
+
+<h3>1.2 Marco legal</h3>
+
+<ul>
+  <li><strong>Constitución Española:</strong> Reconocimiento constitucional del derecho a la negociación colectiva (<span class="art">Art. 37 CE</span>).</li>
+  <li><strong>Normas Internacionales:</strong> Convenios de la OIT y tratados internacionales sobre derechos laborales.</li>
+  <li><strong>Estatuto de los Trabajadores:</strong> Regulación detallada en el Título III del ET, especialmente <span class="art">arts. 82–92</span>.</li>
+</ul>
+
+<h4>Garantía constitucional: Art. 37 CE</h4>
+
+<blockquote>
+  «La ley garantizará el derecho a la negociación colectiva laboral entre los representantes de los trabajadores y empresarios, así como la fuerza vinculante de los convenios.»
+  <cite>Art. 37.1 Constitución Española</cite>
+</blockquote>
+
+<p>Este artículo consagra la autonomía normativa de la negociación colectiva como parte del esquema constitucional de producción del ordenamiento jurídico-laboral. De él derivan cuatro cuestiones básicas:</p>
+
+<div class="table-wrap">
+<table>
+  <tr>
+    <th>Cuestión</th><th>Contenido</th>
+  </tr>
+  <tr><td><strong>Naturaleza del Derecho</strong></td><td>Carácter y naturaleza jurídica del derecho a negociar.</td></tr>
+  <tr><td><strong>Agentes Negociadores</strong></td><td>Identificación de los sujetos legitimados para negociar.</td></tr>
+  <tr><td><strong>Función de Garantía</strong></td><td>Papel de la Ley en la protección y desarrollo del derecho.</td></tr>
+  <tr><td><strong>Contenido</strong></td><td>Determinación de las materias objeto de negociación.</td></tr>
+</table>
+</div>
+
+<div class="box box-importante">
+  <div class="box-title" data-icon="⚠️">Importante</div>
+  La Constitución no sólo <em>reconoce</em> el derecho a negociar, sino que exige que la ley ordinaria regule su ejercicio de manera <strong>garantista</strong>, protegiendo la autonomía colectiva de las partes. La norma estatal está obligada a no interferir en esta autonomía e, incluso, a garantizarla activamente.
+</div>
+
+<h3>1.3 El convenio colectivo</h3>
+
+<div class="box box-def">
+  <div class="box-title" data-icon="📖">Definición legal — Art. 82.1 ET</div>
+  El convenio colectivo es la <strong>expresión del acuerdo libremente adoptado</strong> por representantes de trabajadores y empresarios «en virtud de su autonomía colectiva», para la regulación de las condiciones de empleo y trabajo, en el ámbito de la empresa o en ámbitos superiores. Cumple la función fundamental de superar la debilidad negocial propia del contrato individual de trabajo.
+</div>
+
+<p>Es fundamental distinguir el convenio colectivo de otros pactos o acuerdos:</p>
+<ul>
+  <li><strong>Acuerdos o pactos de empresa:</strong> Acuerdos específicos sobre materias concretas.</li>
+  <li><strong>Acuerdos en fase de consulta:</strong> Resultado de procesos de información y consulta previstos legalmente.</li>
+</ul>
+
+<h4>Modelos de convenio colectivo</h4>
+
+<div class="two-col">
+  <div class="col-card">
+    <div class="col-card-title">Convenio Estatutario</div>
+    <ul>
+      <li><strong>Naturaleza:</strong> Normativa.</li>
+      <li><strong>Eficacia personal:</strong> General o <em>erga omnes</em>.</li>
+      <li>Se aplica a todos los trabajadores y empresarios del ámbito, con independencia de su afiliación.</li>
+      <li>Regulado por el Estatuto de los Trabajadores.</li>
+    </ul>
+  </div>
+  <div class="col-card">
+    <div class="col-card-title">Convenio Extraestatutario</div>
+    <ul>
+      <li><strong>Naturaleza:</strong> Contractual.</li>
+      <li><strong>Eficacia personal:</strong> Limitada o <em>inter partes</em>.</li>
+      <li>Solo aplicable a empresas y trabajadores vinculados con los sujetos negociadores.</li>
+      <li>No sigue las reglas del ET.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="box box-examen">
+  <div class="box-title" data-icon="🎯">Posible Examen</div>
+  Diferencia clave a recordar: el convenio <strong>estatutario</strong> tiene eficacia <em>erga omnes</em> (vincula a todos, estén o no afiliados), mientras que el <strong>extraestatutario</strong> tiene eficacia <em>inter partes</em> (solo vincula a los afiliados a los sindicatos firmantes). Esta distinción es recurrente en los exámenes.
+</div>
+
+<h3>1.4 Sujetos negociadores y legitimación</h3>
+
+<p>El <span class="art">Art. 37.1 CE</span> atribuye el derecho a negociar a «los representantes de los trabajadores y empresarios». La negociación colectiva es una actividad bilateral y colectiva que exige dos partes diferenciadas por sus intereses. Los <span class="art">arts. 87 y 88 ET</span> desarrollan estos requisitos, exigiendo capacidad negocial general y legitimación específica.</p>
+
+<h4>Capacidad para negociar convenios estatutarios — Art. 87 ET</h4>
+
+<div class="two-col">
+  <div class="col-card">
+    <div class="col-card-title">Lado de los trabajadores</div>
+    <p><strong>Convenios de ámbito empresarial:</strong></p>
+    <ul>
+      <li>Comité de empresa.</li>
+      <li>Delegados de personal.</li>
+      <li>Secciones sindicales.</li>
+    </ul>
+    <p><strong>Convenios supraempresariales:</strong></p>
+    <ul>
+      <li>Sindicatos, federaciones y confederaciones (arts. 4.1 y 7 LOLS).</li>
+    </ul>
+  </div>
+  <div class="col-card">
+    <div class="col-card-title">Lado de los empresarios</div>
+    <p><strong>Convenios de ámbito empresarial:</strong></p>
+    <ul>
+      <li>El empresario directamente o sus representantes.</li>
+    </ul>
+    <p><strong>Convenios supraempresariales:</strong></p>
+    <ul>
+      <li>Asociaciones empresariales, federaciones y confederaciones (art. 3 Ley 19/1977).</li>
+    </ul>
+  </div>
+</div>
+
+<h4>Tipos de legitimación</h4>
+
+<div class="table-wrap">
+<table>
+  <tr>
+    <th>Tipo</th><th>Precepto</th><th>Contenido</th>
+  </tr>
+  <tr>
+    <td><strong>Inicial</strong></td><td><span class="art">Art. 87</span></td>
+    <td>Configura el derecho a participar en la negociación.</td>
+  </tr>
+  <tr>
+    <td><strong>Plena</strong></td><td><span class="art">Art. 88</span></td>
+    <td>Establece los requisitos para constituir la comisión negociadora.</td>
+  </tr>
+  <tr>
+    <td><strong>Decisoria</strong></td><td><span class="art">Art. 89.3</span></td>
+    <td>Permite la aprobación del convenio colectivo.</td>
+  </tr>
+</table>
+</div>
+
+<h4>Legitimación en convenios de empresa</h4>
+
+<p>El fundamento de la legitimación es la <strong>representatividad</strong>: ser representativo de los trabajadores afectados por el convenio que se va a negociar.</p>
+
+<div class="box box-recuerda">
+  <div class="box-title" data-icon="💡">Recuerda — Empresa con varios centros</div>
+  En empresas con varios centros de trabajo, tienen legitimación <strong>todos</strong> los delegados y miembros del comité, o el comité intercentro si existe y tiene facultades negociadoras (<span class="art">Art. 63.3 ET</span>). Esto debe compatibilizarse con el <span class="art">Art. 88.3 ET</span>, que fija el máximo de <strong>13 miembros por banco</strong> en convenios de empresa.
+</div>
+
+<h4>Legitimación de las secciones sindicales</h4>
+
+<p>No cualquier sección sindical tiene legitimación. Solo la tienen las secciones de <strong>sindicatos más representativos</strong> o de sindicatos con <strong>implantación en los órganos de representación unitaria</strong>. Además, las secciones admitidas deben sumar en conjunto la <strong>mayoría de los miembros del Comité</strong> o de los delegados de personal.</p>
+
+<p>Si no alcanzan la mayoría, pueden negociar igualmente, pero el convenio tendrá <strong>eficacia limitada</strong> y solo afectará a los trabajadores afiliados a dichas secciones.</p>
+
+<div class="box box-ejemplo">
+  <div class="box-title" data-icon="🧩">Ejemplo práctico — Legitimación de secciones sindicales</div>
+  <p>En una empresa dedicada a la fabricación de componentes electrónicos se inicia la negociación de un convenio. El comité tiene 21 miembros: CCOO (7), UGT (4), CNT (3), Lista Independiente (2).</p>
+  <p>Para que la comisión negociadora esté <strong>válidamente constituida</strong> con eficacia general, las secciones sindicales deben representar al menos <strong>11 miembros</strong> (mayoría absoluta).</p>
+  <ul>
+    <li><strong>Eficacia general:</strong> Si negocian CCOO + UGT (7+4=11) ✔</li>
+    <li><strong>Eficacia limitada:</strong> Si negocian UGT + CNT (4+3=7) ✘ — no alcanzan la mayoría.</li>
+  </ul>
+</div>
+
+<h4>Legitimación en convenios supraempresariales (sector)</h4>
+
+<p><strong>Lado de los trabajadores:</strong></p>
+<ul>
+  <li>Sindicatos más representativos a nivel estatal (CCOO y UGT).</li>
+  <li>Sindicatos más representativos a nivel de CCAA (CIG, ELA-STV y LAB).</li>
+  <li>Sindicatos afiliados, federados o confederados a los anteriores (representatividad por irradiación).</li>
+  <li>Sindicatos suficientemente representativos: audiencia electoral mínima del <strong>10%</strong> en el ámbito geográfico y funcional del convenio.</li>
+</ul>
+
+<p><strong>Lado de los empresarios:</strong></p>
+<ul>
+  <li>Asociaciones empresariales con el <strong>10%</strong> de empresarios y trabajadores en el ámbito del convenio.</li>
+  <li>Asociaciones empresariales que den ocupación al <strong>15%</strong> de los trabajadores afectados.</li>
+  <li>En sectores sin asociaciones que cumplan lo anterior: asociaciones con 10% a nivel estatal o 15% en CCAA.</li>
+</ul>
+
+<div class="box box-importante">
+  <div class="box-title" data-icon="⚠️">Importante — Art. 87.5 ET</div>
+  Todo sindicato y toda asociación empresarial con <strong>legitimación inicial</strong> tiene derecho a formar parte de la comisión negociadora. Cualquier intento de exclusión constituye una <strong>conducta antisindical</strong> que vulnera el <span class="art">Art. 28.1 CE</span>. El convenio negociado con vulneración de este derecho fundamental será <strong>radicalmente nulo y sin efecto</strong>.
+</div>
+
+<h4>Legitimación en convenios de Grupo de empresas</h4>
+
+<p>La reforma de junio de 2011 institucionalizó las reglas jurisprudenciales para la legitimación en convenios de grupos de empresas (<span class="art">Art. 87.1 ET</span>):</p>
+<ul>
+  <li><strong>Lado empresarial:</strong> Representación de las empresas del grupo.</li>
+  <li><strong>Lado de los trabajadores:</strong> Las mismas reglas de legitimación que para convenios sectoriales.</li>
+</ul>
+
+<h3>1.5 Unidades y ámbitos de negociación</h3>
+
+<p>La <strong>unidad de negociación</strong> es el conjunto de relaciones de trabajo que las partes delimitan como ámbito de aplicación del convenio.</p>
+
+<div class="table-wrap">
+<table>
+  <tr>
+    <th>Ámbito</th><th>Descripción</th><th>Ejemplos</th>
+  </tr>
+  <tr>
+    <td><strong>Funcional</strong></td>
+    <td>Sector o rama de actividad económica.</td>
+    <td>Convenio de empresa, sectorial, de grupo.</td>
+  </tr>
+  <tr>
+    <td><strong>Personal</strong></td>
+    <td>Categorías de trabajadores afectados.</td>
+    <td>Exclusión de directivos, trabajadores cualificados…</td>
+  </tr>
+  <tr>
+    <td><strong>Territorial</strong></td>
+    <td>Espacio geográfico de aplicación.</td>
+    <td>Local, provincial, autonómico, estatal.</td>
+  </tr>
+  <tr>
+    <td><strong>Temporal</strong></td>
+    <td>Periodo de vigencia del convenio.</td>
+    <td>1 año, 3 años, con distintas vigencias por materia.</td>
+  </tr>
+</table>
+</div>
+
+<h3>1.6 Duración, vigencia y concurrencia</h3>
+
+<p>Según el <span class="art">Art. 86.1 ET</span>, la duración la fijan las partes negociadoras, pudiendo establecerse distintos periodos de vigencia para cada materia.</p>
+
+<div class="box box-recuerda">
+  <div class="box-title" data-icon="💡">Recuerda — Conceptos clave de vigencia</div>
+  <ul>
+    <li><strong>Denuncia del convenio:</strong> Acto formal de comunicación del fin de vigencia.</li>
+    <li><strong>Prórroga automática:</strong> Si no hay denuncia, el convenio se prorroga de año en año.</li>
+    <li><strong>Ultraactividad:</strong> El convenio sigue en vigor tras su denuncia hasta que se aprueba uno nuevo.</li>
+  </ul>
+</div>
+
+<h4>La ultraactividad antes y después de la Reforma Laboral 2021–2022</h4>
+
+<div class="two-col">
+  <div class="col-card">
+    <div class="col-card-title">Reforma 2012 (hasta 30/12/2021)</div>
+    <p>Transcurrido un año desde la denuncia sin acuerdo ni laudo arbitral ni pacto en contrario, el convenio <strong>perdía su vigencia</strong> y se aplicaba el convenio de ámbito superior.</p>
+  </div>
+  <div class="col-card">
+    <div class="col-card-title">Reforma 2021–2022 (desde 31/12/2021)</div>
+    <p>Se recupera la <strong>ultraactividad indefinida</strong>: el convenio sigue vigente tras la denuncia en los términos que el propio convenio prevea. Transcurrido un año, las partes deben someterse a mediación (y en su caso arbitraje) interprofesional.</p>
+  </div>
+</div>
+
+<div class="box box-recuerda">
+  <div class="box-title" data-icon="💡">Recuerda — Diferencia entre laudo y mediación</div>
+  El <strong>laudo</strong> es una decisión obligatoria impuesta por un árbitro que pone fin al conflicto, funcionando como una sentencia. La <strong>mediación</strong> es un proceso donde un facilitador ayuda a que las propias partes lleguen a un acuerdo sin imponerlo.
+</div>
+
+<h4>Concurrencia de convenios — Art. 84 ET</h4>
+
+<p>Es posible que dos o más convenios concurran a la hora de regular las mismas relaciones laborales. Para resolver este problema, el <span class="art">Art. 84 ET</span> establece las siguientes reglas:</p>
+
+<div class="box box-importante">
+  <div class="box-title" data-icon="⚠️">Importante — Regla general de concurrencia (Art. 84.1 ET)</div>
+  Un convenio colectivo, durante su vigencia, <strong>no podrá ser afectado</strong> por lo dispuesto en un convenio de ámbito distinto, salvo pacto en contrario negociado conforme a acuerdo interprofesional. La fecha de firma y el eventual acuerdo interprofesional son determinantes.
+</div>
+
+<h4>Excepción: prioridad del convenio de empresa (Art. 84.2 ET — desde 31/12/2021)</h4>
+
+<p>El convenio de empresa tiene prioridad aplicativa sobre el convenio sectorial en las siguientes materias:</p>
+<ul>
+  <li>Abono o compensación de horas extraordinarias y retribución del trabajo a turnos.</li>
+  <li>Horario y distribución del tiempo de trabajo, régimen de trabajo a turnos y planificación anual de vacaciones.</li>
+  <li>Adaptación al ámbito de empresa del sistema de clasificación profesional.</li>
+  <li>Adaptación de las modalidades de contratación que la ley atribuye a convenios de empresa.</li>
+  <li>Medidas para favorecer la corresponsabilidad y la conciliación laboral, familiar y personal.</li>
+</ul>
+
+<div class="box box-atencion">
+  <div class="box-title" data-icon="🔔">Atención — Reforma 2021–2022</div>
+  Desde el 31/12/2021, el convenio de empresa <strong>NO tiene prioridad</strong> sobre el convenio sectorial en materia de <strong>salario base y complementos salariales</strong>. Este es un cambio fundamental respecto a la Reforma de 2012, que sí otorgaba tal prioridad.
+</div>
+
+<h4>Priorización de convenios autonómicos y provinciales — RDLey 2/2024</h4>
+
+<p>Desde el 23/05/2024, los convenios autonómicos y los acuerdos interprofesionales de CCAA suscritos con las mayorías exigidas tendrán <strong>prioridad aplicativa</strong> sobre cualquier otro convenio sectorial o acuerdo de ámbito estatal, siempre que su regulación resulte <strong>más favorable para los trabajadores</strong>.</p>
+
+<p>Se consideran materias no negociables en ámbitos autonómicos y provinciales: el periodo de prueba, las modalidades de contratación, la clasificación profesional, la jornada máxima anual, el régimen disciplinario, las normas mínimas de prevención de riesgos laborales y la movilidad geográfica.</p>
+
+<h4>El V AENC (2023–2025)</h4>
+
+<p>El <strong>V Acuerdo para el Empleo y la Negociación Colectiva</strong> es un acuerdo entre CCOO, UGT, CEOE y CEPYME que establece las directrices para la negociación colectiva en España durante 2023–2025. No es una ley, sino una guía para mejorar el empleo, los salarios y las condiciones de trabajo. Incluye materias como estabilidad laboral, igualdad, teletrabajo, salud en el trabajo y, especialmente, la <strong>transición ecológica</strong>.</p>
+
+<div class="box box-recuerda">
+  <div class="box-title" data-icon="💡">Recuerda — Ley 9/2025</div>
+  La Ley 9/2025 de Movilidad Sostenible reconoce la movilidad como un <strong>derecho social</strong> y una herramienta esencial de cohesión territorial y descarbonización.
+</div>
+
+<hr class="divider">
+
+<!-- ────────────────────────────────────────────────────────
+     TEMA 2
+──────────────────────────────────────────────────────── -->
+<div class="tema" id="tema2">
+  <span class="tema-num">Tema 2</span>
+  <h2>La Negociación de Convenios Colectivos</h2>
+  <p class="tema-subtitle">Procedimiento negociador: fases, deber de negociar y composición de la comisión</p>
+</div>
+
+<h3>2.1 Naturaleza formal del procedimiento</h3>
+
+<p>En atención a la naturaleza <em>erga omnes</em> del convenio colectivo estatutario, el legislador somete su elaboración a un <strong>procedimiento complejo, estructurado y eminentemente formal</strong>. Esta formalización garantiza la seguridad jurídica y la legitimidad democrática del resultado negociado.</p>
+
+<div class="box box-importante">
+  <div class="box-title" data-icon="⚠️">Importante</div>
+  Los trámites formales son <strong>requisitos de obligado cumplimiento</strong>. Su inobservancia puede acarrear la invalidez del convenio resultante o su degradación a convenio extraestatutario, con la consiguiente pérdida de eficacia general.
+</div>
+
+<h4>Fases del procedimiento</h4>
+
+<div class="steps">
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content"><strong>Inicio:</strong> Denuncia y comunicación del convenio anterior.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content"><strong>Constitución:</strong> Formación de la comisión negociadora.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content"><strong>Negociación:</strong> Diálogo y negociación de buena fe.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content"><strong>Resultado:</strong> Convenio, huelga u otro conflicto.</div>
+  </div>
+</div>
+
+<h3>2.2 El deber de negociar</h3>
+
+<p>El <span class="art">Art. 89 ET</span> establece un <strong>deber legal de negociar</strong> que recae sobre la parte receptora de la comunicación de inicio. Este deber es una obligación jurídica de naturaleza pública que garantiza la efectividad del derecho constitucional a la negociación colectiva.</p>
+
+<h4>Excepciones al deber de negociar</h4>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Tipo de causa</th><th>Descripción</th></tr>
+  <tr>
+    <td><strong>Legal</strong></td>
+    <td>Falta de legitimación inicial o inobservancia de las reglas sobre concurrencia de convenios previstas en el <span class="art">art. 84 ET</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>Convencional</strong></td>
+    <td>Existencia de negociación en curso de un convenio en unidad superior o convenio franja preexistente en el mismo ámbito.</td>
+  </tr>
+  <tr>
+    <td><strong>Vigencia</strong></td>
+    <td>Cuando se pretenda revisar un convenio en vigor que opera sobre el mismo ámbito funcional y territorial.</td>
+  </tr>
+</table>
+</div>
+
+<div class="box box-recuerda">
+  <div class="box-title" data-icon="💡">Recuerda — Plazo de respuesta</div>
+  La parte receptora dispone de <strong>un mes</strong> desde la recepción de la comunicación para responder afirmativamente y constituir la comisión negociadora. Este plazo es de carácter <strong>imperativo</strong>.
+</div>
+
+<h3>2.3 El principio de buena fe negocial</h3>
+
+<p>El <span class="art">Art. 89.1 ET</span> consagra el deber de negociar de <strong>buena fe</strong> para ambas partes durante todo el proceso. Este principio implica una conducta leal, transparente y colaborativa orientada a alcanzar un acuerdo.</p>
+
+<p>Las obligaciones del AENC en materia de buena fe incluyen:</p>
+<ul>
+  <li>Iniciar de inmediato la negociación.</li>
+  <li>Intercambiar información relevante.</li>
+  <li>Mantener la negociación abierta.</li>
+  <li>Formular propuestas y alternativas por escrito.</li>
+  <li>Acudir a sistemas de autocomposición ante situaciones de bloqueo.</li>
+</ul>
+
+<div class="box box-atencion">
+  <div class="box-title" data-icon="🔔">Atención</div>
+  La existencia de <strong>violencia sobre las personas o sobre las cosas</strong> constituye causa de <strong>suspensión inmediata</strong> de la negociación.
+</div>
+
+<h3>2.4 Composición de la comisión negociadora</h3>
+
+<h4>Convenios de empresa — Límite máximo: 13 miembros</h4>
+
+<p>La comisión tiene estructura bipartita. En el lado social, la designación debe respetar un <strong>criterio de proporcionalidad</strong> que garantice la presencia de todos los sindicatos representados en el comité de empresa según su cuota de participación electoral.</p>
+
+<div class="box box-ejemplo">
+  <div class="box-title" data-icon="🧩">Caso práctico — Composición proporcional (Hotel NH)</div>
+  <p>Comité de empresa: 21 miembros — CC.OO. (9), UGT (7), Grupo Independiente (5). Mesa negociadora acordada: 12 miembros.</p>
+  <p><strong>Aplicación de la regla de tres:</strong></p>
+  <ul>
+    <li>Grupo Independiente: 5×12/21 = 2,85 → 2 puestos enteros</li>
+    <li>UGT: 7×12/21 = 4 → 4 puestos enteros</li>
+    <li>CC.OO.: 9×12/21 = 5,14 → 5 puestos enteros</li>
+  </ul>
+  <p>Total asignado: 11 puestos. El puesto restante se atribuye al sujeto con mayor resto decimal: <strong>Grupo Independiente</strong> (0,85).</p>
+  <p><strong>Resultado final:</strong> Grupo Independiente: 3 — UGT: 4 — CC.OO.: 5 (total: 12).</p>
+</div>
+
+<div class="box box-ejemplo">
+  <div class="box-title" data-icon="🧩">Caso práctico — Negociación por secciones sindicales</div>
+  <p>Empresa de Pontevedra, componentes electrónicos. Comité: 21 miembros — CC.OO. (7), UGT (4), CNT (3), Lista independiente (2).</p>
+  <p>Requisito: Las secciones sindicales negociadoras deben representar en conjunto al menos a la <strong>mayoría de miembros del comité (≥11)</strong>.</p>
+  <ul>
+    <li><strong>Eficacia general:</strong> CC.OO. + UGT = 7+4 = 11 ✔ (justo en el límite)</li>
+    <li><strong>Eficacia limitada:</strong> UGT + CNT = 4+3 = 7 ✘ — solo afecta a afiliados.</li>
+    <li><strong>Posible:</strong> Una sola sección sindical puede satisfacer el requisito y negociar en solitario un convenio de eficacia general si cuenta con mayoría suficiente.</li>
+  </ul>
+</div>
+
+<h4>Convenios supraempresariales — Límite máximo: 15 miembros</h4>
+
+<p>Las reglas para la composición de la comisión negociadora de convenios supraempresariales conjugan tres tipos de reglas:</p>
+<ul>
+  <li><strong>Derecho de participación (<span class="art">Art. 87.5 ET</span>):</strong> Todo sujeto legitimado tiene derecho a un puesto.</li>
+  <li><strong>Proporcionalidad representativa (<span class="art">Art. 88.1 ET</span>):</strong> El reparto de voz y voto es proporcional a la representatividad.</li>
+  <li><strong>Potestad de designación (<span class="art">Art. 88.3 ET</span>):</strong> Las partes designan los miembros concretos, respetando las reglas anteriores.</li>
+</ul>
+
+<h4>Organización interna de la comisión</h4>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Cargo</th><th>Designación</th><th>Voto</th></tr>
+  <tr><td><strong>Presidente</strong></td><td>Mutuo acuerdo.</td><td>Sin voto si es ajeno a los sujetos negociadores.</td></tr>
+  <tr><td><strong>Secretario</strong></td><td>Por la comisión.</td><td>Sin voto si no es miembro negociador.</td></tr>
+  <tr><td><strong>Asesores</strong></td><td>Unilateralmente, sin necesidad de acuerdo.</td><td>Solo voz, nunca voto.</td></tr>
+</table>
+</div>
+
+<h4>Documentación y actas</h4>
+
+<p>El secretario debe levantar actas de constitución y de todas las reuniones. Los <strong>preacuerdos</strong> parciales tienen carácter provisional y pueden renegociarse hasta su incorporación en el acuerdo final.</p>
+
+<div class="box box-recuerda">
+  <div class="box-title" data-icon="💡">Recuerda — Permisos retribuidos (Art. 9.2 LOLS)</div>
+  Los representantes sindicales en activo que participen en comisiones negociadoras de convenios que afecten a su empresa tienen derecho a <strong>permisos retribuidos</strong> para el adecuado ejercicio de su función como negociadores. Este es un precepto fundamental que va más allá del crédito horario ordinario del <span class="art">art. 68 e) ET</span>.
+</div>
+
+<h3>2.5 Adopción del acuerdo: legitimación decisoria</h3>
+
+<div class="box box-importante">
+  <div class="box-title" data-icon="⚠️">Importante — Regla de la doble mayoría (Art. 89.3 ET)</div>
+  Los acuerdos requieren el <strong>voto favorable de la mayoría de cada una de las dos representaciones</strong> (social y empresarial). El incumplimiento de este requisito impide que el convenio adquiera carácter estatutario. No es necesario el refrendo de los trabajadores afectados, aunque las partes pueden someter el resultado a referéndum no vinculante.
+</div>
+
+<h3>2.6 Trámites posteriores al acuerdo</h3>
+
+<div class="steps">
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content"><strong>Registro:</strong> Presentación ante la autoridad laboral en el plazo de <strong>15 días</strong> desde la firma.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content"><strong>Depósito:</strong> Remisión al órgano público de mediación, arbitraje y conciliación competente.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content"><strong>Publicación:</strong> En el plazo máximo de <strong>20 días</strong> desde la presentación, publicación en BOE, DOG o BOP según corresponda.</div>
+  </div>
+</div>
+
+<div class="box box-atencion">
+  <div class="box-title" data-icon="🔔">Atención</div>
+  El convenio entra en vigor en la fecha que acuerden las partes, que puede ser anterior, simultánea o posterior a su publicación oficial. El plazo de 20 días sirve también para que la autoridad laboral ejerza un <strong>control de legalidad</strong>.
+</div>
+
+<h4>Adhesión y extensión de convenios</h4>
+
+<div class="two-col">
+  <div class="col-card">
+    <div class="col-card-title">Adhesión — Art. 92.1 ET</div>
+    <p>Procedimiento colectivo por el que las partes legitimadas se adhieren a la totalidad de un convenio vigente de otro ámbito. Es un mecanismo de <strong>economía negocial</strong>: evita duplicidades.</p>
+  </div>
+  <div class="col-card">
+    <div class="col-card-title">Extensión — Art. 92.2 ET</div>
+    <p>Acto <strong>administrativo</strong> de la autoridad laboral que extiende un convenio a un ámbito carente de regulación propia. Es excepcional, solo procede cuando existan «circunstancias sociales y económicas de notoria importancia».</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ────────────────────────────────────────────────────────
+     TEMA 3
+──────────────────────────────────────────────────────── -->
+<div class="tema" id="tema3">
+  <span class="tema-num">Tema 3</span>
+  <h2>El Contenido de los Convenios y su Gestión</h2>
+  <p class="tema-subtitle">Materias, contenido mínimo, comisiones paritarias e inaplicación</p>
+</div>
+
+<h3>3.1 Contenido del convenio — Art. 85 ET</h3>
+
+<p>El <span class="art">Art. 85.1 ET</span> permite negociar <strong>materias de índole económica, laboral y sindical</strong>, con respeto a las leyes (en sentido material, incluyendo reglamentos). También pueden incluirse sistemas extrajudiciales para resolver conflictos en fases de consultas y cláusulas sobre el principio de igualdad.</p>
+
+<div class="box box-importante">
+  <div class="box-title" data-icon="⚠️">Importante — Deber de negociar medidas de igualdad</div>
+  El <span class="art">Art. 85.2 ET</span> recoge el deber de negociar medidas de igualdad o planes de igualdad (<span class="art">arts. 45 ss. LO 3/2007</span>, modificada por <span class="art">RD 6/2019</span>). En convenios supraempresariales, este deber se desarrolla a nivel empresarial en los términos que fije el sector.
+</div>
+
+<h4>Contenido mínimo obligatorio del convenio</h4>
+
+<ul>
+  <li>Identificación de las partes que lo conciertan.</li>
+  <li>Ámbito personal, funcional, territorial y temporal.</li>
+  <li>Procedimientos para solventar discrepancias en la inaplicación de condiciones (<span class="art">art. 82.3 ET</span>).</li>
+  <li>Forma y condiciones para la denuncia del convenio y plazo para la misma.</li>
+  <li>Designación de una <strong>comisión paritaria</strong> con procedimientos y plazos de actuación.</li>
+</ul>
+
+<h4>Las comisiones paritarias — Art. 82.3 ET</h4>
+
+<p>La comisión paritaria es el órgano constituido por representantes de ambas partes negociadoras para la interpretación auténtica del convenio y la resolución de discrepancias en su aplicación. Su intervención puede ser <strong>requisito procesal previo</strong> a la vía judicial (<span class="art">art. 91.3 ET</span>).</p>
+
+<div class="box box-recuerda">
+  <div class="box-title" data-icon="💡">Recuerda — Comisiones abiertas y cerradas</div>
+  Las comisiones paritarias pueden ser <strong>abiertas</strong> (con competencias amplias, pueden conocer cualquier cuestión relativa al convenio) o <strong>cerradas</strong> (solo conocen de las materias específicamente atribuidas en el propio convenio).
+</div>
+
+<h3>3.2 El convenio colectivo como instrumento de gestión empresarial</h3>
+
+<p>En la negociación colectiva, la empresa busca principalmente la <strong>flexibilidad interna</strong>, que le permite adaptarse a las circunstancias del mercado sin necesidad de recurrir a medidas más drásticas. Los contenidos habituales de la negociación actual incluyen:</p>
+<ul>
+  <li>Jornadas irregulares.</li>
+  <li>Sistemas clasificatorios y movilidad funcional.</li>
+  <li>Retribución variable y contratación temporal.</li>
+  <li>Privacidad en el entorno laboral y derecho a la desconexión digital.</li>
+  <li>Regulación del teletrabajo.</li>
+</ul>
+
+<h3>3.3 La inaplicación de los convenios (descuelgue)</h3>
+
+<p>El <strong>descuelgue</strong> permite que una empresa en situación de dificultad quede exenta de aplicar el convenio que le corresponde, en determinadas materias y cumpliendo ciertos requisitos.</p>
+
+<h4>Causas habilitantes — ETOP</h4>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Causa</th><th>Descripción</th></tr>
+  <tr><td><strong>Económica</strong></td><td>Situación económica negativa: pérdidas actuales o previstas, o disminución persistente de ingresos o ventas.</td></tr>
+  <tr><td><strong>Técnica</strong></td><td>Cambios en los medios o instrumentos de producción.</td></tr>
+  <tr><td><strong>Organizativa</strong></td><td>Cambios en el sistema o método de trabajo del personal o en el modo de organizar la producción.</td></tr>
+  <tr><td><strong>Productiva</strong></td><td>Cambios en la demanda de los productos o servicios de la empresa.</td></tr>
+</table>
+</div>
+
+<div class="box box-recuerda">
+  <div class="box-title" data-icon="💡">Recuerda — Particularidades del descuelgue</div>
+  <ul>
+    <li>Ámbito: estrictamente de empresa (no nivel inferior o superior).</li>
+    <li>La inaplicación no puede tener efectos retroactivos (STS 7-7-2015).</li>
+    <li>Cabe la inaplicación durante la ultraactividad del convenio (STS 23-12-2015).</li>
+    <li>El acuerdo debe tener contenido determinado y duración definida, y notificarse a la comisión paritaria del convenio.</li>
+    <li>Sus efectos no pueden extenderse más allá del momento en que resulte aplicable un nuevo convenio.</li>
+  </ul>
+</div>
+
+<h4>Procedimiento en caso de desacuerdo</h4>
+
+<div class="steps">
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">Fase de consultas (<span class="art">art. 41 ET</span>). Si concluye con acuerdo, opera una presunción de existencia de causas.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">Cualquiera de las partes puede someter la cuestión a la <strong>comisión paritaria</strong> del convenio (plazo: 7 días).</div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">Las partes quedan obligadas a someterse a los <strong>acuerdos extrajudiciales de solución de conflictos</strong> (<span class="art">art. 83.3 ET</span>).</div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">Si persiste el desacuerdo: sometimiento a la <strong>Comisión Consultiva Nacional de Convenios Colectivos (CCNCC)</strong> o al órgano equivalente de CCAA (en Galicia: Comisión Tripartita Gallega, Decreto 101/2015).</div>
+  </div>
+</div>
+
+<div class="box box-juris">
+  <div class="box-title" data-icon="⚖️">Jurisprudencia relevante</div>
+  <ul>
+    <li><strong>STC 119/2014:</strong> Desestimó las dudas de constitucionalidad sobre la intervención de la CCNCC. El control judicial no es exclusivamente procedimental, sino que se extiende al fondo del asunto (control judicial pleno).</li>
+    <li><strong>STC 8/2015:</strong> Aportó mayor claridad sobre la fuerza vinculante de los convenios y la constitucionalidad del descuelgue.</li>
+    <li><strong>STS 15-9-2015:</strong> La intervención de la CCNCC tiene carácter subsidiario: deben agotarse previamente las vías de negociación de buena fe.</li>
+  </ul>
+</div>
+
+<hr class="divider">
+
+<!-- ────────────────────────────────────────────────────────
+     TEMA 4 / 6
+──────────────────────────────────────────────────────── -->
+<div class="tema" id="tema46">
+  <span class="tema-num">Temas 4 y 6</span>
+  <h2>Control Judicial de los Convenios Colectivos</h2>
+  <p class="tema-subtitle">Ilegalidad, lesividad y canales de impugnación</p>
+</div>
+
+<h3>4.1 Control de legalidad y no lesividad — Arts. 90.5 y 90.6 ET</h3>
+
+<p>El ordenamiento establece un mecanismo de control sobre los convenios ante la jurisdicción social, fundamentado en dos motivos diferenciados:</p>
+
+<div class="two-col">
+  <div class="col-card">
+    <div class="col-card-title">Ilegalidad</div>
+    <ul>
+      <li>La negociación no se ajusta a los requisitos formales y sustantivos del Título III del ET.</li>
+      <li>El contenido material vulnera normas de derecho necesario.</li>
+    </ul>
+  </div>
+  <div class="col-card">
+    <div class="col-card-title">Lesividad</div>
+    <p>Perjuicio grave causado a <strong>terceros ajenos</strong> al ámbito de aplicación del convenio.</p>
+    <p>Caso paradigmático: las <strong>Empresas de Trabajo Temporal (ETT)</strong> como terceros lesionados.</p>
+  </div>
+</div>
+
+<div class="box box-importante">
+  <div class="box-title" data-icon="⚠️">Importante — Papel del juez</div>
+  El juez <strong>no puede sustituir unas cláusulas por otras</strong>: su función es estrictamente de control, no de regulación. Las consecuencias posibles de la impugnación son la <strong>anulación total o parcial</strong> del convenio. Si la anulación afecta a todo el convenio, este podría mantener eficacia como convenio extraestatutario.
+</div>
+
+<h3>4.2 Los tres canales de impugnación</h3>
+
+<h4>Canal 1 — Procedimiento de oficio</h4>
+
+<p>Iniciativa de la <strong>autoridad laboral</strong>. Puede promoverse durante el depósito/registro del convenio o durante su vigencia si se detectan irregularidades.</p>
+
+<div class="schema">
+  <span class="schema-arrow">→</span> Autoridad laboral detecta irregularidad<br>
+  <span class="schema-arrow">→</span> Comunicación-demanda al juzgado o sala competente<br>
+  <span class="schema-arrow">→</span> Si no actúa en 15 días → impugnación subsidiaria directa por los legitimados (<span class="art">Art. 163.3 LRJS</span>)
+</div>
+
+<h4>Canal 2 — Impugnación directa — Art. 165 LRJS</h4>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Motivo</th><th>Legitimados (activos)</th></tr>
+  <tr>
+    <td><strong>Ilegalidad</strong><br><span class="art">Art. 165.1.a LRJS</span></td>
+    <td>Órganos de representación legal o sindical; sindicatos y asociaciones empresariales interesadas; Ministerio Fiscal; Administración General del Estado y CCAA; Instituto de la Mujer (para discriminaciones por razón de sexo).</td>
+  </tr>
+  <tr>
+    <td><strong>Lesividad</strong><br><span class="art">Art. 165.1.b LRJS</span></td>
+    <td>Terceros cuyo interés haya resultado <strong>gravemente lesionado</strong>. No se consideran terceros los trabajadores y empresarios incluidos en el ámbito del convenio.</td>
+  </tr>
+</table>
+</div>
+
+<div class="box box-atencion">
+  <div class="box-title" data-icon="🔔">Legitimación pasiva — Art. 165.2 LRJS</div>
+  Deben ser demandadas <strong>todas y cada una</strong> de las representaciones que formaron parte de la mesa negociadora. La omisión de alguna de ellas da lugar a una excepción de falta de litisconsorcio pasivo necesario.
+</div>
+
+<h4>Canal 3 — Demanda de inaplicación — Art. 163.4 LRJS</h4>
+
+<p>Si al aplicarse una cláusula del convenio surge un conflicto y el juez aprecia que la disposición no es conforme a Derecho, lo comunica al Ministerio Fiscal para que plantee en su caso la impugnación formal.</p>
+
+<div class="box box-clase">
+  <div class="box-title" data-icon="🎓">Concepto clave — «Globo sonda» procesal</div>
+  La demanda de inaplicación funciona estratégicamente como un <strong>globo sonda</strong>: permite tantear la posición judicial sobre determinadas cláusulas para, posteriormente, plantear un conflicto colectivo con mayor solidez. Su fundamento último está en el derecho a la tutela judicial efectiva (<span class="art">art. 24 CE</span>).
+  <div class="schema" style="margin-top:1rem;">
+    Demanda individual → Posición judicial → Impugnación colectiva → Conflicto colectivo
+  </div>
+</div>
+
+<h4>Cláusulas de vinculación a la totalidad</h4>
+
+<p>Son estipulaciones por las que las partes condicionan la validez del conjunto del convenio a la subsistencia íntegra de todas sus cláusulas.</p>
+
+<div class="box box-juris">
+  <div class="box-title" data-icon="⚖️">Doctrina consolidada — STS 22-9-1998</div>
+  La <strong>función normativa del convenio prevalece sobre la voluntad contractual</strong> cuando están en juego derechos indisponibles. La anulación parcial de un convenio no arrastra necesariamente al resto: las partes tienen el deber de negociar un convenio conforme a la legalidad vigente. No pueden escudarse en el equilibrio interno para mantener cláusulas contrarias a Derecho.
+</div>
+
+<div class="box box-examen">
+  <div class="box-title" data-icon="🎯">Resumen para examen — Los tres canales</div>
+  <ul>
+    <li><strong>Canal 1 — Oficio:</strong> Autoridad laboral → comunicación-demanda.</li>
+    <li><strong>Canal 2 — Directa:</strong> Ilegalidad (legitimación diferenciada) y lesividad (terceros).</li>
+    <li><strong>Canal 3 — Inaplicación:</strong> Tutela judicial efectiva → globo sonda procesal.</li>
+  </ul>
+</div>
+
+<hr class="divider">
+
+<!-- ────────────────────────────────────────────────────────
+     TEMA 7
+──────────────────────────────────────────────────────── -->
+<div class="tema" id="tema7">
+  <span class="tema-num">Tema 7</span>
+  <h2>Otros Instrumentos Negociales</h2>
+  <p class="tema-subtitle">Negociación extraestatutaria, acuerdos de empresa y mecanismo RED</p>
+</div>
+
+<h3>7.1 Negociación colectiva extraestatutaria</h3>
+
+<p>La negociación extraestatutaria es reconocida como un derecho fundamental por el TC a partir de los <span class="art">arts. 7 y 28 CE</span>. El TC ha señalado que «el derecho de negociación colectiva forma parte del contenido esencial del derecho de libertad sindical» y que negarla equivaldría a la inconstitucionalidad del ET. Se produce en todos aquellos casos en que <strong>no se respetan las normas del ET</strong> para la negociación colectiva.</p>
+
+<div class="box box-def">
+  <div class="box-title" data-icon="📖">Definición — Naturaleza «en negativo»</div>
+  El convenio extraestatutario se define por lo que <strong>no es</strong>: un convenio que no sigue el procedimiento estatutario ni cumple todos sus requisitos de legitimación o forma. Su naturaleza jurídica es controvertida.
+</div>
+
+<h4>Características del régimen jurídico extraestatutario</h4>
+
+<ul>
+  <li><strong>Partes negociadoras:</strong> No existe norma específica; basta con ser representantes efectivos de trabajadores y empresarios.</li>
+  <li><strong>Contenido:</strong> Libertad de las partes con los límites de las normas legales imperativas, el principio de igualdad y no discriminación, y el respeto de los derechos contractuales de los trabajadores.</li>
+  <li><strong>Procedimiento:</strong> Sin reglas estatutarias de tramitación, publicidad o registro. No se aplican reglas sobre prórroga automática ni ultraactividad.</li>
+  <li><strong>Eficacia personal:</strong> Limitada (inter partes), con matizaciones.</li>
+  <li><strong>No se aplican</strong> las reglas sobre concurrencia conflictiva del <span class="art">art. 84 ET</span>.</li>
+</ul>
+
+<h4>Razones por las que se recurre a la vía extraestatutaria</h4>
+<ul>
+  <li>Inexistencia de representantes legitimados para la vía estatutaria.</li>
+  <li>No alcanzar los porcentajes de representatividad requeridos.</li>
+  <li>Imposibilidad de llegar a un acuerdo estatutario.</li>
+  <li>Por decisión voluntaria de las partes.</li>
+</ul>
+
+<div class="box box-importante">
+  <div class="box-title" data-icon="⚠️">Límites de la negociación extraestatutaria</div>
+  <ul>
+    <li>No puede lesionar ni entrar en contradicción con lo establecido en convenios estatutarios vigentes.</li>
+    <li>No puede perjudicar las posibilidades y facultades de negociar futuros convenios estatutarios.</li>
+  </ul>
+</div>
+
+<h3>7.2 Acuerdos de empresa</h3>
+
+<h4>Tipologías</h4>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Tipo de acuerdo</th><th>Precepto</th></tr>
+  <tr><td>Sustitutivos de convenios estatutarios sobre materias concretas</td><td><span class="art">Arts. 22, 24, 29, 34, 67 ET</span></td></tr>
+  <tr><td>Los que ponen fin a una huelga</td><td>—</td></tr>
+  <tr><td>Los que ponen fin a un conflicto colectivo</td><td>—</td></tr>
+  <tr><td>Los de inaplicación de un convenio estatutario (<em>descuelgue</em>)</td><td><span class="art">Art. 82.3 ET</span></td></tr>
+  <tr><td>Los de modificación sustancial de condiciones contractuales colectivas</td><td><span class="art">Art. 41 ET</span></td></tr>
+  <tr><td>Los de fusión o absorción de empresas</td><td>—</td></tr>
+</table>
+</div>
+
+<h4>Acuerdos sustitutivos — Características generales</h4>
+<ul>
+  <li><strong>Procedimiento:</strong> Libre (informalidad).</li>
+  <li><strong>Carácter subsidiario</strong> respecto a los convenios colectivos: solo si no hay convenio.</li>
+  <li><strong>Eficacia erga omnes</strong> y naturaleza jurídica normativa (adquieren la eficacia del convenio que sustituyen).</li>
+  <li>Duración: la que establezcan las partes.</li>
+</ul>
+
+<h4>Acuerdos de inaplicación (descuelgue) — Arts. 82.3 y 85.3 ET</h4>
+
+<p>Permiten a una empresa «descolgarse» de la aplicación de una serie de materias de un convenio estatutario por causas ETOP. Características especiales de legitimación:</p>
+
+<div class="box box-recuerda">
+  <div class="box-title" data-icon="💡">Recuerda — Representación en ausencia de representantes</div>
+  En los supuestos de ausencia de representación legal en la empresa, los trabajadores pueden designar una <strong>comisión de hasta 3 miembros</strong> elegida por los afectados (o de los sindicatos más representativos del sector). Plazo de designación: <strong>5 días</strong> desde el inicio de la solicitud de descuelgue. La falta de designación no paraliza las negociaciones.
+</div>
+
+<h4>Acuerdos en movilidad geográfica — Art. 40 ET (traslados colectivos)</h4>
+
+<p>Requieren un <strong>periodo de consultas</strong> con los representantes de los trabajadores de duración no superior a 15 días. Deben versar sobre las causas motivadoras, la posibilidad de evitar o reducir sus efectos, y las medidas para atenuar sus consecuencias.</p>
+
+<h4>Acuerdos en regulación de empleo</h4>
+
+<ul>
+  <li><span class="art">Art. 51 ET</span>: extinción (<strong>despido colectivo</strong>).</li>
+  <li><span class="art">Art. 47 ET</span>: suspensión (<strong>reducción de jornada / ERTE</strong>).</li>
+</ul>
+
+<h3>7.3 El Mecanismo RED</h3>
+
+<p>El <strong>Mecanismo de Estabilidad y Flexibilidad en el Empleo (RED)</strong> complementa los ERTE ordinarios para atender necesidades excepcionales de naturaleza macroeconómica o sectorial. Una vez activado por el Consejo de Ministros, permite a las empresas solicitar medidas de reducción de jornada y suspensión de contratos.</p>
+
+<h4>Modalidades</h4>
+
+<div class="two-col">
+  <div class="col-card">
+    <div class="col-card-title">Cíclica</div>
+    <p>Aplicable cuando la coyuntura económica general lo aconseje.</p>
+    <p><strong>Duración máxima:</strong> 1 año.</p>
+  </div>
+  <div class="col-card">
+    <div class="col-card-title">Sectorial</div>
+    <p>Aplicable cuando en un sector sean necesarios procesos de recualificación y transición profesional.</p>
+    <p><strong>Duración máxima:</strong> 1 año + 2 prórrogas de 6 meses.</p>
+  </div>
+</div>
+
+<h4>Beneficios de cotización</h4>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Modalidad</th><th>Periodo</th><th>Exención</th></tr>
+  <tr><td rowspan="3"><strong>Cíclica</strong></td><td>Desde activación hasta el último día del 4.º mes posterior</td><td><strong>60%</strong></td></tr>
+  <tr><td>4 meses siguientes</td><td><strong>30%</strong></td></tr>
+  <tr><td>4 meses siguientes</td><td><strong>20%</strong></td></tr>
+  <tr><td><strong>Sectorial</strong></td><td>Todo el periodo</td><td><strong>40%</strong></td></tr>
+</table>
+</div>
+
+<div class="box box-importante">
+  <div class="box-title" data-icon="⚠️">Importante — Compromiso de mantenimiento del empleo</div>
+  Para obtener los beneficios de cotización, las empresas deben mantener el empleo de los afectados durante los <strong>6 meses siguientes</strong> a la finalización del periodo de aplicación. En caso de incumplimiento, deben reintegrar las cotizaciones exoneradas con recargo e intereses de demora.
+</div>
+
+<hr class="divider">
+
+<!-- ────────────────────────────────────────────────────────
+     TEMA 8
+──────────────────────────────────────────────────────── -->
+<div class="tema" id="tema8">
+  <span class="tema-num">Tema 8</span>
+  <h2>Conflictos Laborales</h2>
+  <p class="tema-subtitle">Concepto, tipología, medidas y procedimientos de solución</p>
+</div>
+
+<h3>8.1 ¿Qué es un conflicto de trabajo?</h3>
+
+<div class="box box-def">
+  <div class="box-title" data-icon="📖">Definición</div>
+  El conflicto de trabajo es toda <strong>discusión o controversia manifestada externamente</strong> entre empresarios y trabajadores, con raíz en las relaciones de trabajo. Debe versar sobre condiciones de trabajo, no sobre cualquier condición social o económica.
+</div>
+
+<h4>Elementos configuradores del conflicto colectivo</h4>
+
+<div class="table-wrap">
+<table>
+  <tr>
+    <th>Elemento subjetivo (quién)</th>
+    <th>Elemento objetivo (qué)</th>
+  </tr>
+  <tr>
+    <td>Presencia ineludible de una <strong>pluralidad de trabajadores como grupo estructurado</strong>, no como suma de individuos.</td>
+    <td>Ha de afectar a un <strong>interés colectivo</strong>: general, abstracto e indivisible. Si es divisible, solo lo es por vía refleja en sus consecuencias.</td>
+  </tr>
+</table>
+</div>
+
+<div class="box box-importante">
+  <div class="box-title" data-icon="⚠️">Importante</div>
+  Ambos elementos deben subsistir <strong>simultáneamente</strong> para calificar el conflicto como colectivo. La asunción y administración sindical del conflicto es el criterio más convincente para calificarlo como tal.
+</div>
+
+<h4>Tipos de conflicto</h4>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Tipo</th><th>Descripción</th><th>Ejemplos</th></tr>
+  <tr>
+    <td><strong>Individual</strong></td>
+    <td>Un trabajador vs. su empresario. Debate sobre un derecho subjetivo singular.</td>
+    <td>Reclamación de salarios impagados por un trabajador concreto.</td>
+  </tr>
+  <tr>
+    <td><strong>Plural</strong></td>
+    <td>Varios trabajadores juntan reclamaciones individuales, pero sin interés unitario abstracto.</td>
+    <td>Varios trabajadores reclaman salarios cada uno por su caso.</td>
+  </tr>
+  <tr>
+    <td><strong>Colectivo</strong></td>
+    <td>Interés general, abstracto e indivisible de una pluralidad de trabajadores como grupo. Trasciende a cada trabajador individualmente.</td>
+    <td>Disputa sobre el cálculo del complemento de nocturnidad para toda la plantilla.</td>
+  </tr>
+</table>
+</div>
+
+<div class="box box-examen">
+  <div class="box-title" data-icon="🎯">Truco para examen</div>
+  Si la petición es <strong>genérica para todo el grupo</strong> → proceso de conflicto colectivo. Si las peticiones son <strong>individualizadas para cada trabajador</strong> → procedimiento ordinario. (STS 18-6-1992, STS 12-12-1994, STS 24-7-2002)
+</div>
+
+<h4>Conflictos jurídicos vs. conflictos de intereses</h4>
+
+<div class="two-col">
+  <div class="col-card">
+    <div class="col-card-title">Conflicto jurídico (de interpretación)</div>
+    <p>Versa sobre la aplicación/interpretación de una norma ya existente. La norma <strong>preexiste</strong> al conflicto.</p>
+    <p><strong>Resolución:</strong> Proceso judicial (arts. 153 ss. LRJS) o vía extraprocesal. Son «justiciables».</p>
+  </div>
+  <div class="col-card">
+    <div class="col-card-title">Conflicto de intereses (económico)</div>
+    <p>Se suscita para crear, modificar o derogar un convenio. El conflicto <strong>preexiste</strong> a la norma.</p>
+    <p><strong>Resolución:</strong> Solo extrajudicial (negociación, mediación, arbitraje). Son «negociables».</p>
+  </div>
+</div>
+
+<h3>8.2 Medidas de conflicto</h3>
+
+<h4>Medidas lícitas de los trabajadores</h4>
+<ul>
+  <li>Huelga (<span class="art">art. 28.2 CE</span> — derecho fundamental).</li>
+  <li>Ejercicio de libertad de expresión, reunión y manifestación (<span class="art">arts. 20 y 21 CE</span>).</li>
+  <li>Boicot (evitar relaciones comerciales con la empresa).</li>
+  <li>Negativa a horas extras voluntarias, cumplimiento estricto del horario.</li>
+  <li>Piquetes persuasivos e informativos.</li>
+</ul>
+
+<h4>Medidas ilícitas de los trabajadores</h4>
+<ul>
+  <li>Sabotaje (atentado contra bienes e instalaciones).</li>
+  <li>Piquetes coactivos.</li>
+  <li>Trabajo lento, huelgas de celo o reglamento, trabajo defectuoso.</li>
+</ul>
+
+<h4>Medidas lícitas de los empresarios</h4>
+<ul>
+  <li>Cierre patronal (lock-out).</li>
+  <li>Ejercicio del poder de dirección (<span class="art">art. 20 ET</span>).</li>
+  <li>Política de retribuciones (dentro de mínimos).</li>
+  <li>Poder sancionador (<span class="art">art. 58 ET</span>), vigilancia y control.</li>
+  <li>Desviaciones productivas o financieras a otros centros (<span class="art">art. 38 CE</span>).</li>
+  <li>Campañas informativas.</li>
+</ul>
+
+<h4>Medidas ilícitas de los empresarios</h4>
+<ul>
+  <li>Listas negras de trabajadores conflictivos — práctica antisindical y discriminatoria.</li>
+  <li>No colaboración: obstaculizar locales sindicales, tablones de anuncios, crédito horario, asambleas, elecciones…</li>
+</ul>
+
+<h3>8.3 Procedimientos de solución</h3>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Mecanismo</th><th>Tipo</th><th>Descripción</th></tr>
+  <tr>
+    <td><strong>Negociación directa</strong></td>
+    <td>Autocomposición</td>
+    <td>Las propias partes resuelven sin tercero.</td>
+  </tr>
+  <tr>
+    <td><strong>Conciliación / Mediación</strong></td>
+    <td>Heterocomposición extrajudicial</td>
+    <td>Un tercero facilita el acuerdo sin imponerlo.</td>
+  </tr>
+  <tr>
+    <td><strong>Arbitraje</strong></td>
+    <td>Heterocomposición extrajudicial</td>
+    <td>Un árbitro impone una solución vinculante (laudo).</td>
+  </tr>
+  <tr>
+    <td><strong>Proceso judicial</strong></td>
+    <td>Heterocomposición judicial</td>
+    <td>Resolución por los tribunales del orden social (<span class="art">arts. 153 ss. LRJS</span>).</td>
+  </tr>
+</table>
+</div>
+
+<hr class="divider">
+
+<!-- ────────────────────────────────────────────────────────
+     TEMA 9
+──────────────────────────────────────────────────────── -->
+<div class="tema" id="tema9">
+  <span class="tema-num">Tema 9</span>
+  <h2>Los Acuerdos Interprofesionales Vigentes para la Solución de Conflictos</h2>
+  <p class="tema-subtitle">ASAC, AENC, SIMA y el AGA gallego</p>
+</div>
+
+<h3>9.1 Poder normativo del Estado y autonomía colectiva</h3>
+
+<div class="two-col">
+  <div class="col-card">
+    <div class="col-card-title">Poder Normativo del Estado</div>
+    <p>El Estado dicta las normas laborales (ET, leyes orgánicas, etc.), establece el marco mínimo de derechos y obligaciones y garantiza el cumplimiento de los acuerdos alcanzados.</p>
+  </div>
+  <div class="col-card">
+    <div class="col-card-title">Autonomía Colectiva</div>
+    <p>Los propios agentes sociales regulan sus conflictos mediante convenios colectivos y acuerdos interprofesionales. Amparada en el <span class="art">art. 83.3 ET</span>.</p>
+  </div>
+</div>
+
+<p>Estos dos poderes no son contradictorios: el poder normativo del Estado da cobertura legal a los acuerdos que los propios actores sociales alcanzan de forma autónoma.</p>
+
+<h3>9.2 Concertación social y neocorporativismo democrático</h3>
+
+<p>La <strong>concertación social</strong> es el fenómeno por el cual los agentes sociales y el Estado acuerdan conjuntamente las normas y políticas laborales, en lugar de que sea el Estado quien las imponga unilateralmente. Da lugar al <strong>neocorporativismo democrático</strong>, cuyas consecuencias son:</p>
+<ul>
+  <li>El Parlamento pierde importancia en beneficio de los agentes sociales en determinadas materias laborales.</li>
+  <li>Los actores sociales operan en un ámbito distinto al ordinario de los poderes públicos.</li>
+  <li>El Estado pasa de <em>legislador directo</em> a <em>garante y facilitador</em> del acuerdo.</li>
+</ul>
+
+<div class="box box-examen">
+  <div class="box-title" data-icon="🎯">Ejemplo clave para examen — Reforma Laboral 2021</div>
+  La reforma del ET de 2021 es el ejemplo más importante de concertación social en España en los últimos años. El gobierno convocó la Mesa de Diálogo Social con CCOO, UGT, CEOE y CEPYME y se comprometió: «si llegáis a un acuerdo, el texto íntegro se trasladará al Parlamento sin cambiar ni una coma». Los agentes sociales alcanzaron el acuerdo → ese texto se convirtió en la ley. Se aprobó en el Parlamento <strong>por un solo voto de diferencia</strong>. De ahí la importancia de que llegara íntegro: cualquier modificación hubiera roto el compromiso.
+</div>
+
+<h3>9.3 Acuerdos interprofesionales vigentes a nivel estatal</h3>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Acuerdo</th><th>Sigla</th><th>Objeto principal</th></tr>
+  <tr>
+    <td>VI Acuerdo sobre Solución Autónoma de Conflictos Laborales</td>
+    <td><strong>VI ASAC</strong><br>BOE 23-12-2020</td>
+    <td>Regula los procedimientos de mediación y arbitraje para la resolución de conflictos colectivos e individuales.</td>
+  </tr>
+  <tr>
+    <td>V Acuerdo para el Empleo y la Negociación Colectiva</td>
+    <td><strong>V AENC</strong><br>BOE 31-05-2023</td>
+    <td>Establece directrices de contenido para la negociación colectiva: salarios, jornada, teletrabajo, igualdad, transición ecológica, inteligencia artificial, etc.</td>
+  </tr>
+</table>
+</div>
+
+<h3>9.4 El VI ASAC</h3>
+
+<p>Es el acuerdo marco nacional que regula los procedimientos extrajudiciales para la solución de conflictos. Se encuadra en el <span class="art">art. 83.3 ET</span>.</p>
+
+<h4>Elementos esenciales</h4>
+<ul>
+  <li><strong>Principio de voluntariedad:</strong> La adhesión es voluntaria, salvo en supuestos en que la ley lo exige (como la mediación previa a la huelga).</li>
+  <li><strong>Comisiones paritarias:</strong> Papel central en la interpretación y aplicación del acuerdo.</li>
+  <li><strong>Acotamiento de plazos:</strong> Plazos concretos para cada fase.</li>
+  <li><strong>Listas de mediadores y árbitros.</strong></li>
+  <li><strong>Ampliación del ámbito:</strong> Mayor número y variedad de conflictos incluidos, también individuales en ciertos casos.</li>
+  <li><strong>Coordinación territorial</strong> entre el ASAC estatal y los acuerdos autonómicos.</li>
+</ul>
+
+<h3>9.5 El SIMA — Sistema Interconfederal de Mediación y Arbitraje</h3>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Principio</th><th>Contenido</th></tr>
+  <tr><td><strong>Gratuidad</strong></td><td>Los procedimientos son gratuitos para las partes.</td></tr>
+  <tr><td><strong>Celeridad</strong></td><td>Plazos cortos. En la práctica, duración media de 3-4 meses.</td></tr>
+  <tr><td><strong>Imparcialidad</strong></td><td>El mediador/árbitro debe ser reconocido por ambas partes como persona neutral.</td></tr>
+  <tr><td><strong>Contradicción</strong></td><td>Ambas partes pueden exponer sus argumentos.</td></tr>
+</table>
+</div>
+
+<div class="two-col">
+  <div class="col-card">
+    <div class="col-card-title">Mediación</div>
+    <ul>
+      <li><strong>Obligatoria</strong> en caso de convocatoria de huelga.</li>
+      <li>El mediador facilita el diálogo pero <strong>NO impone</strong> una solución.</li>
+      <li>Las partes mantienen el control del resultado.</li>
+      <li>Alta efectividad cuando es voluntaria (aprox. 60–80%).</li>
+    </ul>
+  </div>
+  <div class="col-card">
+    <div class="col-card-title">Arbitraje</div>
+    <ul>
+      <li>Siempre <strong>voluntario</strong>: ninguna parte puede ser obligada.</li>
+      <li>El árbitro <strong>SÍ impone</strong> una solución (laudo arbitral) con la misma eficacia que un convenio colectivo.</li>
+      <li>Las partes ceden el control de la decisión.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="box box-clase">
+  <div class="box-title" data-icon="🎓">Nota de clase — Mediación voluntaria vs. obligatoria</div>
+  El SMAC realiza una mediación obligatoria de escasa efectividad: el trámite es rápido, muy institucionalizado y poco fluido. En cambio, en la mediación voluntaria del SIMA o del AGA, la parte acude <em>predispuesta</em> a encontrar una solución, lo que mejora exponencialmente el resultado. El acuerdo alcanzado voluntariamente tiene mayor grado de cumplimiento espontáneo.
+</div>
+
+<h3>9.6 El AGA — Acordo Galego sobre Solución de Conflitos Laborais</h3>
+
+<p>El <strong>AGA</strong> es el acuerdo interprofesional vigente en Galicia para la solución extrajudicial de conflictos laborales. Es el equivalente autonómico del ASAC estatal y uno de los acuerdos autonómicos más antiguos de España.</p>
+
+<h4>Ámbito de aplicación</h4>
+<p>Todas las empresas que desarrollen su actividad en el territorio gallego quedan sometidas al AGA.</p>
+
+<div class="box box-examen">
+  <div class="box-title" data-icon="🎯">Posible examen — Mediación en el AGA: ¿voluntaria u obligatoria?</div>
+  El AGA recoge la mediación como <strong>«propuesta obligatoria»</strong>, lo que implica:
+  <ul>
+    <li>La parte que quiere iniciar la mediación tiene la <strong>obligación de formular la propuesta</strong>.</li>
+    <li>La parte receptora tiene la <strong>obligación de responder</strong> (no puede ignorarla).</li>
+    <li>Sin embargo, la <strong>aceptación es voluntaria</strong>: la parte receptora puede rechazarla.</li>
+  </ul>
+  Esto NO tiene la misma obligatoriedad que la mediación previa del SMAC.
+</div>
+
+<p><strong>¿Es esto positivo o negativo?</strong></p>
+<ul>
+  <li><em>Positivo:</em> Evita que se intensifique el conflicto sin forzar a las partes cuando no quieren. No «calienta» más el ambiente.</li>
+  <li><em>Negativo:</em> Si la parte más poderosa rechaza la propuesta, no hay posibilidad de acuerdo extrajudicial y el conflicto debe resolverse judicialmente.</li>
+</ul>
+
+<h4>Contenido del AGA</h4>
+<ul>
+  <li><strong>Parte de derecho colectivo:</strong> Regula los conflictos colectivos: huelgas, aplicación de convenios, inaplicación de condiciones, etc.</li>
+  <li><strong>Parte de derecho individual</strong> (más novedosa): Permite resolver de forma más rápida conflictos individuales relacionados con el ejercicio de derechos de conciliación (vacaciones, reducción de jornada, etc.), especialmente cuando afecten a personas con menores o mayores a cargo.</li>
+</ul>
+
+<h3>9.7 Negociación intersectorial sobre formación continua</h3>
+
+<p>Los acuerdos nacionales de formación continua se suscriben también al amparo del <span class="art">art. 83.3 ET</span>. El <strong>III Acuerdo Nacional de Formación Continua</strong> (19-12-2000, entre CEOE, CEPYME, CCOO, UGT y CIG) dio lugar a la <strong>Fundación Tripartita para la Formación en el Empleo (hoy Fundae)</strong> y conecta con la Estrategia Europea para el Empleo.</p>
+
+<hr class="divider">
+
+<!-- ────────────────────────────────────────────────────────
+     TEMA 10
+──────────────────────────────────────────────────────── -->
+<div class="tema" id="tema10">
+  <span class="tema-num">Tema 10</span>
+  <h2>El Derecho de Huelga (I)</h2>
+  <p class="tema-subtitle">Concepto, marco normativo, titularidad, modalidades y límites</p>
+</div>
+
+<h3>10.1 Reconocimiento constitucional y marco normativo</h3>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Artículo CE</th><th>Contenido</th></tr>
+  <tr>
+    <td><span class="art">Art. 28.2 CE</span></td>
+    <td>Reconoce la huelga como <strong>derecho constitucional fundamental</strong> de los trabajadores.</td>
+  </tr>
+  <tr>
+    <td><span class="art">Art. 53.2 CE</span></td>
+    <td>Protección reforzada: proceso sumario y preferente + recurso de amparo ante el TC + desarrollo mediante Ley Orgánica.</td>
+  </tr>
+  <tr>
+    <td><span class="art">Art. 37.2 CE</span></td>
+    <td>Derecho de trabajadores y empresarios a adoptar medidas de conflicto colectivo.</td>
+  </tr>
+  <tr>
+    <td><span class="art">Art. 28.1 CE</span></td>
+    <td>Libertad sindical — el derecho de huelga forma parte de su contenido esencial.</td>
+  </tr>
+</table>
+</div>
+
+<div class="box box-importante">
+  <div class="box-title" data-icon="⚠️">Importante — Art. 28.2 CE ≠ Art. 37.2 CE</div>
+  El <span class="art">art. 28.2 CE</span> no es repetitivo del <span class="art">art. 37.2 CE</span>. El 28.2 dota a la huelga de una posición <strong>superior y privilegiada</strong>, con función de contrapeso en una situación desigual de fuerzas (STC 11/1981).
+  <p style="margin-top:0.5rem">Conexión clave: la vulneración del derecho de huelga implica simultáneamente la vulneración del derecho de libertad sindical (<span class="art">art. 28.1 CE</span>).</p>
+</div>
+
+<h4>La anomalía regulativa: ausencia de Ley Orgánica</h4>
+
+<p>El <span class="art">art. 81.1 CE</span> exige Ley Orgánica para desarrollar derechos fundamentales. Sin embargo, a día de hoy no existe ninguna Ley Orgánica que desarrolle el <span class="art">art. 28.2 CE</span>. El derecho de huelga es el <strong>único derecho fundamental sin el desarrollo legal previsto</strong>, más de 40 años después de la entrada en vigor de la CE.</p>
+
+<p>La norma vigente es el <strong>Real Decreto-Ley 17/1977, de 4 de marzo (DLRT)</strong>, norma preconstitucional introducida con carácter provisional.</p>
+
+<div class="box box-juris">
+  <div class="box-title" data-icon="⚖️">STC 11/1981 — La depuración constitucional del DLRT</div>
+  La sentencia más importante en materia de huelga. El TC declaró inconstitucionales ciertas disposiciones del DLRT pero mantuvo la norma en su conjunto, estableciendo principios para una interpretación conforme a la Constitución. Reconoció que el DLRT contiene una regulación «moderada y claramente restrictiva» pero insuficiente para declarar su inconstitucionalidad total. A partir de ella: masiva intervención jurisprudencial del TC para definir los perfiles constitucionales del derecho de huelga.
+</div>
+
+<h3>10.2 Definición de huelga</h3>
+
+<blockquote>
+  «La huelga es aquella perturbación que se produce en el normal desenvolvimiento de la vida social y en particular en el proceso de la producción de bienes y servicios, que se lleva a cabo en forma pacífica y no violenta, mediante un concierto de los trabajadores y de los demás intervinientes en dicho proceso.»
+  <cite>STC 11/1981</cite>
+</blockquote>
+
+<div class="box box-importante">
+  <div class="box-title" data-icon="⚠️">Importante — El daño es intrínseco a la huelga</div>
+  La producción de un <strong>daño es finalidad intrínseca y legítima</strong> de cualquier huelga. Si la huelga no causa daño, no es huelga. La persona usuaria del servicio tiene que notarlo. El tipo y magnitud del daño depende del sector en que se desarrolle.
+</div>
+
+<div class="box box-clase">
+  <div class="box-title" data-icon="🎓">Nota de clase — Concepto móvil</div>
+  El TC reconoce que la noción de huelga es un <strong>concepto móvil</strong>, en constante evolución, construido sobre valores y prácticas que se imponen política y socialmente en cada momento. Esta «debilidad normativa» es en realidad una FORTALEZA: permite que el concepto se adapte a nuevos contextos (huelga digital, huelga en la IA, huelga de guionistas, etc.) sin quedar obsoleto.
+</div>
+
+<h3>10.3 Titularidad del derecho de huelga</h3>
+
+<div class="box box-examen">
+  <div class="box-title" data-icon="🎯">Concepto clave para examen</div>
+  La huelga es un derecho de <strong>TITULARIDAD INDIVIDUAL</strong> (corresponde a cada trabajador) pero de <strong>EJERCICIO COLECTIVO</strong> (STC 11/1981). El sindicato es el interlocutor habitual pero NO tiene exclusividad: la legitimidad para ejercerla no depende de que el sindicato quiera o no.
+</div>
+
+<h4>¿Quién puede convocar la huelga?</h4>
+<ul>
+  <li>Los representantes unitarios y sindicales de los trabajadores.</li>
+  <li>Los trabajadores del centro de trabajo afectado, reunidos en asamblea.</li>
+</ul>
+
+<div class="box box-importante">
+  <div class="box-title" data-icon="⚠️">Importante — No hay monopolio sindical</div>
+  NO existe monopolio sindical en la convocatoria de huelga. El derecho corresponde también a representantes unitarios y a los propios trabajadores en asamblea.
+</div>
+
+<h4>¿Quiénes son titulares?</h4>
+
+<p><strong>Regla general (STC 11/1981, FJ 11):</strong> Trabajadores subordinados y por cuenta ajena. Finalidad: restaurar o conseguir igualdad de poderes frente al empresario.</p>
+
+<p><strong>Titulares en sentido material (noción amplia):</strong></p>
+<ul>
+  <li>Titulares de un contrato de trabajo formal.</li>
+  <li>Desempleados, discapacitados y jubilados (deben adherirse a huelgas convocadas por quienes sí tengan capacidad de comunicar).</li>
+  <li>Funcionarios públicos.</li>
+  <li>Trabajadores extranjeros, con independencia de su situación administrativa en España.</li>
+</ul>
+
+<div class="box box-clase">
+  <div class="box-title" data-icon="🎓">Nota de clase — Trabajadores extranjeros</div>
+  Ser trabajador en España depende de cumplir las notas del <span class="art">art. 1.1 ET</span> (ajenidad, dependencia, retribución…), con independencia de la regularidad administrativa. Esta es la razón por la que la <strong>Ley Rider</strong> pudo reconocer laboralidad a los repartidores de plataformas digitales. Los trabajadores extranjeros en situación irregular son trabajadores a todos los efectos laborales; su irregularidad solo tiene consecuencias administrativas.
+</div>
+
+<h4>Excluidos del derecho de huelga</h4>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Colectivo excluido</th><th>Fundamento</th></tr>
+  <tr>
+    <td>Policías nacionales, de CC.AA. y policías locales</td>
+    <td>Vinculación con la seguridad pública.</td>
+  </tr>
+  <tr>
+    <td>Fuerzas Armadas y cuerpos de carácter militar (Guardia Civil)</td>
+    <td>Carácter militar (misma exclusión que en libertad sindical).</td>
+  </tr>
+  <tr>
+    <td>Fiscales, jueces y magistrados en activo</td>
+    <td>La imparcialidad judicial exige exclusión.</td>
+  </tr>
+</table>
+</div>
+
+<div class="box box-recuerda">
+  <div class="box-title" data-icon="💡">Recuerda — Conexión con libertad sindical</div>
+  Los colectivos excluidos del derecho de huelga son los mismos excluidos o limitados en el derecho de libertad sindical (<span class="art">art. 28.1 CE</span>).
+</div>
+
+<h3>10.4 Naturaleza indisponible del derecho de huelga</h3>
+
+<p>Según el <span class="art">art. 2 DLRT</span>, los trabajadores titulares del derecho NO pueden disponer del mismo. Son nulos los pactos que contengan renuncia o cualquier restricción <em>indefinida</em> al derecho de huelga.</p>
+
+<h4>Cláusulas de tregua o paz sindical</h4>
+
+<p>Son acuerdos colectivos por los que los sujetos colectivos se comprometen a no ejercer el derecho de huelga durante la vigencia del convenio o por un período determinado. Son <strong>lícitas</strong> porque:</p>
+<ul>
+  <li>Son restricciones <strong>temporales</strong> al ejercicio del derecho, no renuncias permanentes.</li>
+  <li>Vinculan únicamente a los <strong>sujetos colectivos</strong> que negocian el convenio, no a los trabajadores a título individual.</li>
+</ul>
+
+<div class="box box-examen">
+  <div class="box-title" data-icon="🎯">Distinción clave para examen</div>
+  <strong>RENUNCIA</strong> (nula, por ser indefinida) vs. <strong>RESTRICCIÓN TEMPORAL colectivamente acordada</strong> (lícita = cláusula de paz sindical). Las cláusulas de tregua solo decaen a partir de la <em>denuncia</em> del convenio.
+</div>
+
+<h3>10.5 Límites y modalidades de huelga</h3>
+
+<h4>Los tres tipos de límites</h4>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Tipo de límite</th><th>En qué consiste</th><th>Consecuencia</th></tr>
+  <tr>
+    <td><strong>1. Formales y de procedimiento</strong></td>
+    <td>Requisitos de forma: preaviso, comunicación, comité de huelga, servicios mínimos…</td>
+    <td>Posible ilegalidad de la huelga.</td>
+  </tr>
+  <tr>
+    <td><strong>2. Externos (finalidades perseguidas)</strong></td>
+    <td>Tienen que ver con los fines de la huelga. No puede perseguir fines contrarios al orden constitucional.</td>
+    <td><strong>HUELGA ILEGAL</strong> <span class="tag-ilegal">ilegal</span></td>
+  </tr>
+  <tr>
+    <td><strong>3. Internos (modalidades de ejercicio)</strong></td>
+    <td>Tienen que ver con la forma en que se desarrolla la huelga.</td>
+    <td><strong>HUELGA ABUSIVA</strong> <span class="tag-ilegal">abusiva</span></td>
+  </tr>
+</table>
+</div>
+
+<div class="box box-examen">
+  <div class="box-title" data-icon="🎯">Posible examen</div>
+  ¿Cuáles son los tres tipos de límites al ejercicio del derecho de huelga? ¿Cuándo es ilegal y cuándo es abusiva?
+</div>
+
+<h4>Modalidades de huelga según los sujetos</h4>
+<ul>
+  <li>Trabajadores asalariados / funcionarios públicos.</li>
+  <li>Huelgas sindicales vs. huelgas salvajes (convocadas al margen de los representantes).</li>
+</ul>
+
+<h4>Modalidades según el objeto</h4>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Tipo</th><th>Descripción</th></tr>
+  <tr>
+    <td><strong>Huelgas políticas</strong></td>
+    <td>Revolucionarias o insurreccionales; políticas puras no insurreccionales; de imposición económico-política o mixtas.</td>
+  </tr>
+  <tr>
+    <td><strong>Huelgas laborales</strong></td>
+    <td>Directas (relación directa trabajador-empresario en conflicto) o solidarias (en apoyo de otros trabajadores).</td>
+  </tr>
+</table>
+</div>
+
+<h4>Modalidades según el procedimiento</h4>
+<ul>
+  <li>Huelga sorpresa — sin preaviso <span class="tag-ilegal">ilegal</span>.</li>
+  <li>Con ocupación de locales.</li>
+  <li>De brazos caídos — hacer el mínimo indispensable.</li>
+  <li>Rotatorias — por turnos o sectores.</li>
+  <li>Intermitentes — paradas y reinicios alternados.</li>
+  <li>Estratégicas o de tapón — en un puesto clave que bloquea todo el proceso productivo.</li>
+  <li>De celo o reglamento — trabajar estrictamente según el reglamento.</li>
+  <li>De trabajo lento — reducción intencionada del ritmo.</li>
+</ul>
+
+<h4>Modalidades según el objeto del conflicto</h4>
+<ul>
+  <li><strong>Huelga contractual:</strong> La más protegida legalmente. Su objeto es el contrato de trabajo (tiempo y salario son las cuestiones más recurrentes).</li>
+  <li><strong>Huelga profesional o solidaria:</strong> Defensa de problemas colectivos. Ejemplo: huelga para mantener abierta la empresa Alcoa (norte de Lugo), con participación incluso de autónomos.</li>
+  <li><strong>Huelga político-social:</strong> Vinculada a la relación laboral pero no plenamente protegida. Lo importante es que esté vinculada al interés laboral perseguido (TC).</li>
+</ul>
+
+<h3>10.6 El cierre patronal (OCAO / lock-out)</h3>
+
+<div class="box box-def">
+  <div class="box-title" data-icon="📖">Definición</div>
+  Clausura temporal del centro de trabajo decidida unilateralmente por el empresario como medida de presión contra los trabajadores en conflicto.
+</div>
+
+<blockquote>
+  «La huelga es un contrapeso que tiene por objeto permitir que las personas en estado de dependencia salarial establezcan una nueva relación de fuerzas en un sentido más favorable para ellas. Tiende a restablecer el equilibrio entre partes de fuerza económica desigual. En cambio, el lock-out es una mayor dosis de poder que se otorga a una persona que ya tenía poder desde antes.»
+  <cite>STC 11/1981</cite>
+</blockquote>
+
+<div class="box box-importante">
+  <div class="box-title" data-icon="⚠️">Importante — Aplicación restrictiva del cierre patronal</div>
+  El cierre patronal tiene <strong>APLICACIÓN RESTRICTIVA</strong>. NO puede servir para neutralizar la huelga de los trabajadores. Huelga y cierre patronal NO son equiparables; no existe «principio de igualdad de armas».
+</div>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Aspecto</th><th>Requisito</th></tr>
+  <tr><td>Frecuencia</td><td>No es práctica frecuente; se reserva para conflictos extremadamente graves.</td></tr>
+  <tr><td>Momento del anuncio</td><td>Previo a la huelga o simultáneo, con aviso suficiente.</td></tr>
+  <tr><td>Duración</td><td>Temporal, salvo que se justifique la extinción definitiva de la empresa.</td></tr>
+  <tr><td>Proporcionalidad</td><td>Debe ser proporcional y justificado por un interés general no alcanzable por otros medios.</td></tr>
+  <tr><td>Control judicial</td><td>Procedimiento preferente sumario urgente.</td></tr>
+</table>
+</div>
+
+<div class="box box-ejemplo">
+  <div class="box-title" data-icon="🧩">Caso práctico — Empresa Sargaderos</div>
+  Empresa gallega con presencia internacional. El empresario anunció el cierre DESPUÉS de que los trabajadores declararan la huelga. La maniobra impidió el ejercicio del derecho constitucional. Calificada como <strong>VIOLACIÓN DEL DERECHO FUNDAMENTAL</strong>: el cierre se realizó sin previo aviso y sin respetar los límites legales.
+</div>
+
+<h3>10.7 Sustitución tecnológica y límites constitucionales</h3>
+
+<p>El poder de dirección del empleador NO puede usarse para sustituir a los trabajadores mediante IA u otros medios tecnológicos cuando ello vulnere derechos fundamentales.</p>
+
+<div class="box box-importante">
+  <div class="box-title" data-icon="⚠️">Principio rector</div>
+  El poder de dirección está limitado por la <strong>PROHIBICIÓN DE SUSTITUIR</strong> a los trabajadores en funciones esenciales sin su consentimiento. La jurisprudencia del TC señala que la sustitución tecnológica no puede menoscabar la dignidad y la estabilidad del empleo.
+</div>
+
+<div class="box box-ejemplo">
+  <div class="box-title" data-icon="🧩">Caso práctico — Transmisión de examen en huelga</div>
+  Una cadena de televisión continuó la transmisión de un examen durante una huelga argumentando el «interés general» (continuidad del examen). El Tribunal consideró que el interés general <strong>NO autoriza la sustitución de los trabajadores</strong> sin respetar el procedimiento legal de conflicto colectivo.
+</div>
+
+<hr class="divider">
+
+<!-- ────────────────────────────────────────────────────────
+     TEMA 11
+──────────────────────────────────────────────────────── -->
+<div class="tema" id="tema11">
+  <span class="tema-num">Tema 11</span>
+  <h2>El Derecho de Huelga (II)</h2>
+  <p class="tema-subtitle">Servicios esenciales, servicios mínimos y procedimiento de huelga</p>
+</div>
+
+<h3>11.1 Marco constitucional y legal</h3>
+
+<p>El <span class="art">art. 10.1 del Real Decreto-Ley 17/1977 (RDLRT)</span> establece límites al ejercicio del derecho de huelga cuando se vean afectados los <strong>servicios esenciales de la comunidad</strong>. La Constitución Española reconoce este derecho en el <span class="art">art. 28.2 CE</span> pero garantiza el mantenimiento de los servicios esenciales sin ofrecer una definición concreta de los mismos.</p>
+
+<h3>11.2 Concepto de servicios esenciales</h3>
+
+<div class="box box-def">
+  <div class="box-title" data-icon="📖">Definición — STC 26/1981</div>
+  Se consideran servicios esenciales aquellos <strong>vinculados a la protección de derechos fundamentales, libertades públicas o bienes constitucionalmente protegidos</strong>, así como a intereses vitales para la comunidad y el normal desarrollo de la vida social. La esencialidad no deriva del carácter público del servicio, sino de la <strong>función que cumple en relación con los derechos fundamentales</strong>. Es un concepto jurídico indeterminado que debe concretarse en cada caso.
+</div>
+
+<h4>Servicios esenciales reconocidos</h4>
+<ul>
+  <li>Educación.</li>
+  <li>Sanidad.</li>
+  <li>Energía.</li>
+  <li>Transporte.</li>
+  <li>Suministro de agua.</li>
+  <li>Telecomunicaciones e información.</li>
+</ul>
+
+<div class="box box-recuerda">
+  <div class="box-title" data-icon="💡">Recuerda — Posición de la OIT</div>
+  El Comité de Libertad Sindical de la OIT ha señalado que en determinados servicios esenciales el derecho de huelga puede ser objeto de limitaciones más estrictas, e incluso llegar a prohibirse. No obstante, tales limitaciones deben ir acompañadas de <strong>garantías compensatorias adecuadas</strong>, como procedimientos eficaces de conciliación y arbitraje.
+</div>
+
+<div class="box box-ejemplo">
+  <div class="box-title" data-icon="🧩">Ejemplo práctico</div>
+  En el ámbito del transporte público (como el trayecto entre Vilagarcía de Arousa y Pontevedra), será necesario analizar en cada situación concreta si la huelga afecta de manera relevante a necesidades básicas de la población, determinando así la posible imposición de servicios mínimos.
+</div>
+
+<h3>11.3 Mantenimiento de los servicios esenciales</h3>
+
+<p>El mantenimiento de un servicio esencial <strong>no implica su funcionamiento ordinario</strong>. La garantía de estos servicios puede suponer ciertas molestias para la ciudadanía, pero exige una adecuada ponderación entre el derecho de huelga y los derechos e intereses que se pretenden proteger.</p>
+
+<div class="box box-importante">
+  <div class="box-title" data-icon="⚠️">Principio de proporcionalidad</div>
+  Las limitaciones impuestas al derecho de huelga deben ser <strong>adecuadas, necesarias y equilibradas</strong> en relación con el fin perseguido, especialmente atendiendo al carácter inaplazable de la prestación. La garantía de los servicios esenciales puede prevalecer sobre el derecho de huelga, siempre que se respete este principio.
+</div>
+
+<h3>11.4 La autoridad gubernativa y los servicios mínimos</h3>
+
+<p>La intervención de los poderes públicos para asegurar los servicios esenciales se articula mediante los <strong>instrumentos normativos correspondientes</strong>. Las medidas adoptadas deben ser <strong>imparciales y motivadas</strong>.</p>
+
+<p>Se ha planteado la posibilidad de establecer prestaciones mínimas anticipadas aplicables a futuras huelgas. Sin embargo, esta opción suscita dudas de constitucionalidad, ya que resulta difícil que normas establecidas «en frío» puedan ajustarse a las exigencias de ponderación y proporcionalidad que deben valorarse en cada caso concreto.</p>
+
+<p>La fijación de los servicios mínimos exige siempre un <strong>proceso de negociación</strong>. Los servicios mínimos deben respetar el principio de proporcionalidad y están sujetos a <strong>control judicial</strong>.</p>
+
+<h3>11.5 Procedimiento de huelga</h3>
+
+<h4>Preaviso — Requisito esencial</h4>
+
+<p>El procedimiento del <span class="art">RDLRT</span>, interpretado por la <strong>STC 11/1981</strong> (que eliminó ciertas trabas, especialmente en relación con los porcentajes necesarios para la convocatoria), requiere siempre un preaviso. El preaviso debe incluir:</p>
+
+<ul>
+  <li>Los objetivos de la huelga.</li>
+  <li>Las gestiones o cuestiones previas realizadas.</li>
+  <li>La fecha de inicio.</li>
+  <li>La composición del comité de huelga.</li>
+</ul>
+
+<div class="box box-recuerda">
+  <div class="box-title" data-icon="💡">Recuerda — Plazos de preaviso</div>
+  <ul>
+    <li><strong>Regla general:</strong> Preaviso de <strong>5 días</strong> a la autoridad laboral y a la empresa.</li>
+    <li><strong>Servicios públicos:</strong> Preaviso de <strong>10 días</strong>.</li>
+  </ul>
+  El cumplimiento del procedimiento es esencial para que la huelga sea legal y legítima.
+</div>
+
+<h4>¿Quién puede convocar?</h4>
+<ul>
+  <li>Los representantes de los trabajadores.</li>
+  <li>Los propios trabajadores mediante acuerdo por mayoría.</li>
+  <li>Los sindicatos.</li>
+</ul>
+
+<h4>El comité de huelga</h4>
+<p>El comité de huelga es esencial: representa a los trabajadores y negocia con las autoridades y otras instancias que puedan mediar en el conflicto.</p>
+
+<h3>11.6 Derechos y deberes durante la huelga</h3>
+
+<h4>Derechos de los trabajadores</h4>
+<ul>
+  <li>Derecho a no trabajar durante la huelga.</li>
+  <li>Derecho a no ser sancionados por ejercer el derecho y participar pacíficamente.</li>
+</ul>
+
+<h4>Deber de desarrollo pacífico y los piquetes</h4>
+
+<div class="two-col">
+  <div class="col-card">
+    <div class="col-card-title">Piquetes informativos <span class="tag-licita">lícitos</span></div>
+    <p>Función: difundir los objetivos de la huelga e invitar a la participación sin coacción.</p>
+  </div>
+  <div class="col-card">
+    <div class="col-card-title">Piquetes coactivos <span class="tag-ilegal">ilícitos</span></div>
+    <p>Suponen coacciones o amenazas: violencia física o intimidación.</p>
+  </div>
+</div>
+
+<p><strong>Límites del ejercicio de los piquetes:</strong></p>
+<ul>
+  <li>Respeto a la integridad física y moral de las personas.</li>
+  <li>Respeto a la libertad de empresa y de trabajo.</li>
+</ul>
+
+<p>La responsabilidad es individual a no ser que exista una consigna colectiva que demuestre lo contrario. Hay límites penales que deben probarse, respetando la presunción de inocencia.</p>
+
+<h3>11.7 Efectos de la huelga legal</h3>
+
+<p>La huelga legal produce la <strong>suspensión del contrato de trabajo</strong> para los trabajadores participantes:</p>
+
+<ul>
+  <li>Suspensión de la obligación de trabajar y de la obligación de abonar el salario durante el tiempo de huelga.</li>
+  <li>El trabajador huelguista queda en situación de <strong>alta especial en la Seguridad Social</strong>, sin obligación de cotizar por parte del empresario ni del trabajador.</li>
+  <li><strong>Prohibición de sustitución</strong> de los trabajadores huelguistas por otros trabajadores contratados durante la huelga.</li>
+  <li><strong>Prohibición de sustitución tecnológica</strong> que vacíe de contenido el derecho de huelga.</li>
+</ul>
+
+<div class="box box-importante">
+  <div class="box-title" data-icon="⚠️">Importante — Huelga ilegal</div>
+  La huelga ilegal puede dar lugar a sanciones disciplinarias, incluyendo el <strong>despido</strong>, previo cumplimiento del procedimiento disciplinario correspondiente.
+</div>
+
+<h3>11.8 Reanudación de actividad y arbitraje obligatorio — Art. 10 RDLRT</h3>
+
+<p>El <span class="art">art. 10 RDLRT</span> prevé mecanismos de reanudación de la actividad en situaciones de especial urgencia o necesidad, incluyendo la posibilidad de recurrir al <strong>arbitraje obligatorio</strong> cuando las circunstancias del conflicto así lo exijan y se cumplan los requisitos legalmente establecidos.</p>
+
+<hr class="divider">
+
+<!-- ────────────────────────────────────────────────────────
+     TEMA 12
+──────────────────────────────────────────────────────── -->
+<div class="tema" id="tema12">
+  <span class="tema-num">Tema 12</span>
+  <h2>Derecho de Huelga y Cierre Patronal</h2>
+  <p class="tema-subtitle">Síntesis comparativa y cuadro de efectos</p>
+</div>
+
+<div class="table-wrap">
+<table>
+  <tr>
+    <th>Aspecto</th>
+    <th>Derecho de Huelga</th>
+    <th>Cierre Patronal</th>
+  </tr>
+  <tr>
+    <td><strong>Titular</strong></td>
+    <td>Trabajadores (individualmente, ejercicio colectivo).</td>
+    <td>Empresario.</td>
+  </tr>
+  <tr>
+    <td><strong>Protección constitucional</strong></td>
+    <td>Derecho fundamental (<span class="art">art. 28.2 CE</span>). Máxima protección.</td>
+    <td>Medida de conflicto (<span class="art">art. 37.2 CE</span>). Protección ordinaria.</td>
+  </tr>
+  <tr>
+    <td><strong>Finalidad</strong></td>
+    <td>Restablecer el equilibrio entre partes de fuerza desigual.</td>
+    <td>Medida de presión excepcional y restrictiva.</td>
+  </tr>
+  <tr>
+    <td><strong>Aplicación</strong></td>
+    <td>General.</td>
+    <td>Restrictiva: solo cuando exista riesgo grave para personas o bienes.</td>
+  </tr>
+  <tr>
+    <td><strong>Efectos sobre el contrato</strong></td>
+    <td>Suspensión del contrato; alta especial en SS.</td>
+    <td>Suspensión de los contratos de los trabajadores que permanezcan en el centro.</td>
+  </tr>
+  <tr>
+    <td><strong>Prohibición clave</strong></td>
+    <td>No sustitución de huelguistas (ni por contratos ni por IA).</td>
+    <td>No puede neutralizar el ejercicio del derecho de huelga.</td>
+  </tr>
+  <tr>
+    <td><strong>Control</strong></td>
+    <td>Judicial (proceso urgente y preferente).</td>
+    <td>Judicial (proceso urgente y preferente).</td>
+  </tr>
+</table>
+</div>
+
+<div class="box box-examen">
+  <div class="box-title" data-icon="🎯">Posible examen — Síntesis final</div>
+  <p><strong>¿Cuándo es ilegal una huelga?</strong> Cuando vulnera los límites <em>externos</em> (fines contrarios al orden constitucional) o los requisitos <em>procedimentales</em> (falta de preaviso, etc.).</p>
+  <p><strong>¿Cuándo es abusiva?</strong> Cuando vulnera los límites <em>internos</em> (modalidad de ejercicio abusiva: huelgas de tapón, etc.).</p>
+  <p><strong>¿Qué consecuencia tiene?</strong> La huelga ilegal puede justificar el despido disciplinario del trabajador, previo procedimiento disciplinario.</p>
+  <p><strong>¿Y el cierre patronal?</strong> Tiene aplicación restrictiva y no puede usarse para neutralizar el derecho de huelga; requiere proporcionalidad y motivación.</p>
+</div>
+
+<div class="box box-recuerda" style="margin-top:3rem;">
+  <div class="box-title" data-icon="💡">Recursos complementarios</div>
+  Todos los acuerdos interprofesionales para la negociación colectiva a nivel estatal desde 1997 están disponibles en:<br>
+  <a href="https://ccncc.mites.gob.es/ayuda-al-ciudadano/acuerdos-para-la-negociacion-colectiva" style="color:var(--accent2); font-family:'JetBrains Mono',monospace; font-size:0.85em;">ccncc.mites.gob.es</a>
+</div>
+
+</div><!-- /content -->
+</body>
+</html>
